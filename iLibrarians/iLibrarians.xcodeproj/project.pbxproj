@@ -19,6 +19,9 @@
 		2C1B314A196BC4F40076E2DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1B3132196BC4F40076E2DF /* UIKit.framework */; };
 		2C1B3152196BC4F40076E2DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C1B3150196BC4F40076E2DF /* InfoPlist.strings */; };
 		2C1B3154196BC4F40076E2DF /* iLibrariansTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B3153196BC4F40076E2DF /* iLibrariansTests.m */; };
+		2CB91CC0196C036F00BD961C /* SLLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB91CBF196C036F00BD961C /* SLLogInViewController.m */; };
+		2CB91CC3196C04B700BD961C /* SLNetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB91CC2196C04B700BD961C /* SLNetworkingAPI.m */; };
+		2CB91CC6196C04C600BD961C /* SLPersistencyAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB91CC5196C04C600BD961C /* SLPersistencyAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,12 @@
 		2C1B314F196BC4F40076E2DF /* iLibrariansTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iLibrariansTests-Info.plist"; sourceTree = "<group>"; };
 		2C1B3151196BC4F40076E2DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2C1B3153196BC4F40076E2DF /* iLibrariansTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iLibrariansTests.m; sourceTree = "<group>"; };
+		2CB91CBE196C036F00BD961C /* SLLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLogInViewController.h; sourceTree = "<group>"; };
+		2CB91CBF196C036F00BD961C /* SLLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLogInViewController.m; sourceTree = "<group>"; };
+		2CB91CC1196C04B700BD961C /* SLNetworkingAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLNetworkingAPI.h; sourceTree = "<group>"; };
+		2CB91CC2196C04B700BD961C /* SLNetworkingAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLNetworkingAPI.m; sourceTree = "<group>"; };
+		2CB91CC4196C04C600BD961C /* SLPersistencyAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLPersistencyAPI.h; sourceTree = "<group>"; };
+		2CB91CC5196C04C600BD961C /* SLPersistencyAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLPersistencyAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +116,15 @@
 		2C1B3134196BC4F40076E2DF /* iLibrarians */ = {
 			isa = PBXGroup;
 			children = (
+				2CB91CBD196C034F00BD961C /* ViewControllers */,
 				2C1B313D196BC4F40076E2DF /* SLAppDelegate.h */,
 				2C1B313E196BC4F40076E2DF /* SLAppDelegate.m */,
 				2C1B3140196BC4F40076E2DF /* Images.xcassets */,
 				2C1B3135196BC4F40076E2DF /* Supporting Files */,
+				2CB91CC1196C04B700BD961C /* SLNetworkingAPI.h */,
+				2CB91CC2196C04B700BD961C /* SLNetworkingAPI.m */,
+				2CB91CC4196C04C600BD961C /* SLPersistencyAPI.h */,
+				2CB91CC5196C04C600BD961C /* SLPersistencyAPI.m */,
 			);
 			path = iLibrarians;
 			sourceTree = "<group>";
@@ -142,6 +156,15 @@
 				2C1B3150196BC4F40076E2DF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2CB91CBD196C034F00BD961C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2CB91CBE196C036F00BD961C /* SLLogInViewController.h */,
+				2CB91CBF196C036F00BD961C /* SLLogInViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C1B313B196BC4F40076E2DF /* main.m in Sources */,
+				2CB91CC3196C04B700BD961C /* SLNetworkingAPI.m in Sources */,
+				2CB91CC0196C036F00BD961C /* SLLogInViewController.m in Sources */,
+				2CB91CC6196C04C600BD961C /* SLPersistencyAPI.m in Sources */,
 				2C1B313F196BC4F40076E2DF /* SLAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,6 +464,7 @@
 				2C1B3159196BC4F40076E2DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2C1B315A196BC4F40076E2DF /* Build configuration list for PBXNativeTarget "iLibrariansTests" */ = {
 			isa = XCConfigurationList;
@@ -446,6 +473,7 @@
 				2C1B315C196BC4F40076E2DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
