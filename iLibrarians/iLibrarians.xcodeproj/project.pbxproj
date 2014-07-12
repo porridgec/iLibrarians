@@ -18,6 +18,11 @@
 		18DC1BE919711F2D008EEC5C /* MKNetworkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DC1BDA19711F2D008EEC5C /* MKNetworkEngine.m */; };
 		18DC1BEA19711F2D008EEC5C /* MKNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DC1BDD19711F2D008EEC5C /* MKNetworkOperation.m */; };
 		18DC1BEB19711F2D008EEC5C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DC1BE019711F2D008EEC5C /* Reachability.m */; };
+		18DC1BF51971209A008EEC5C /* iLIBBookCircleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DC1BEE1971209A008EEC5C /* iLIBBookCircleItem.m */; };
+		18DC1BF61971209A008EEC5C /* iLIBBookItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DC1BF01971209A008EEC5C /* iLIBBookItem.m */; };
+		18DC1BF71971209A008EEC5C /* iLIBComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DC1BF21971209A008EEC5C /* iLIBComment.m */; };
+		18DC1BF81971209A008EEC5C /* iLIBFloatBookItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DC1BF41971209A008EEC5C /* iLIBFloatBookItem.m */; };
+		18DC1BFB19712297008EEC5C /* iLIBEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DC1BFA19712297008EEC5C /* iLIBEngine.m */; };
 		2C1B312F196BC4F40076E2DF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1B312E196BC4F40076E2DF /* Foundation.framework */; };
 		2C1B3131196BC4F40076E2DF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1B3130196BC4F40076E2DF /* CoreGraphics.framework */; };
 		2C1B3133196BC4F40076E2DF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1B3132196BC4F40076E2DF /* UIKit.framework */; };
@@ -31,7 +36,6 @@
 		2C1B3152196BC4F40076E2DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2C1B3150196BC4F40076E2DF /* InfoPlist.strings */; };
 		2C1B3154196BC4F40076E2DF /* iLibrariansTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B3153196BC4F40076E2DF /* iLibrariansTests.m */; };
 		2CB91CC0196C036F00BD961C /* SLLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB91CBF196C036F00BD961C /* SLLogInViewController.m */; };
-		2CB91CC3196C04B700BD961C /* SLNetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB91CC2196C04B700BD961C /* SLNetworkingAPI.m */; };
 		2CB91CC6196C04C600BD961C /* SLPersistencyAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB91CC5196C04C600BD961C /* SLPersistencyAPI.m */; };
 		2CD4F034197104F10077A967 /* SLMyLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F033197104F10077A967 /* SLMyLibraryViewController.m */; };
 		2CD4F0371971050B0077A967 /* SLBooksExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F0361971050B0077A967 /* SLBooksExchangeViewController.m */; };
@@ -74,6 +78,16 @@
 		18DC1BDD19711F2D008EEC5C /* MKNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKNetworkOperation.m; sourceTree = "<group>"; };
 		18DC1BDF19711F2D008EEC5C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		18DC1BE019711F2D008EEC5C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		18DC1BED1971209A008EEC5C /* iLIBBookCircleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iLIBBookCircleItem.h; sourceTree = "<group>"; };
+		18DC1BEE1971209A008EEC5C /* iLIBBookCircleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iLIBBookCircleItem.m; sourceTree = "<group>"; };
+		18DC1BEF1971209A008EEC5C /* iLIBBookItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iLIBBookItem.h; sourceTree = "<group>"; };
+		18DC1BF01971209A008EEC5C /* iLIBBookItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iLIBBookItem.m; sourceTree = "<group>"; };
+		18DC1BF11971209A008EEC5C /* iLIBComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iLIBComment.h; sourceTree = "<group>"; };
+		18DC1BF21971209A008EEC5C /* iLIBComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iLIBComment.m; sourceTree = "<group>"; };
+		18DC1BF31971209A008EEC5C /* iLIBFloatBookItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iLIBFloatBookItem.h; sourceTree = "<group>"; };
+		18DC1BF41971209A008EEC5C /* iLIBFloatBookItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iLIBFloatBookItem.m; sourceTree = "<group>"; };
+		18DC1BF919712297008EEC5C /* iLIBEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iLIBEngine.h; sourceTree = "<group>"; };
+		18DC1BFA19712297008EEC5C /* iLIBEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iLIBEngine.m; sourceTree = "<group>"; };
 		2C1B312B196BC4F40076E2DF /* iLibrarians.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLibrarians.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C1B312E196BC4F40076E2DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2C1B3130196BC4F40076E2DF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -92,8 +106,6 @@
 		2C1B3153196BC4F40076E2DF /* iLibrariansTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iLibrariansTests.m; sourceTree = "<group>"; };
 		2CB91CBE196C036F00BD961C /* SLLogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLogInViewController.h; sourceTree = "<group>"; };
 		2CB91CBF196C036F00BD961C /* SLLogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLogInViewController.m; sourceTree = "<group>"; };
-		2CB91CC1196C04B700BD961C /* SLNetworkingAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLNetworkingAPI.h; sourceTree = "<group>"; };
-		2CB91CC2196C04B700BD961C /* SLNetworkingAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLNetworkingAPI.m; sourceTree = "<group>"; };
 		2CB91CC4196C04C600BD961C /* SLPersistencyAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLPersistencyAPI.h; sourceTree = "<group>"; };
 		2CB91CC5196C04C600BD961C /* SLPersistencyAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLPersistencyAPI.m; sourceTree = "<group>"; };
 		2CD4F032197104F10077A967 /* SLMyLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMyLibraryViewController.h; sourceTree = "<group>"; };
@@ -186,6 +198,30 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		18DC1BEC1971209A008EEC5C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18DC1BED1971209A008EEC5C /* iLIBBookCircleItem.h */,
+				18DC1BEE1971209A008EEC5C /* iLIBBookCircleItem.m */,
+				18DC1BEF1971209A008EEC5C /* iLIBBookItem.h */,
+				18DC1BF01971209A008EEC5C /* iLIBBookItem.m */,
+				18DC1BF11971209A008EEC5C /* iLIBComment.h */,
+				18DC1BF21971209A008EEC5C /* iLIBComment.m */,
+				18DC1BF31971209A008EEC5C /* iLIBFloatBookItem.h */,
+				18DC1BF41971209A008EEC5C /* iLIBFloatBookItem.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18DC1BFD19712363008EEC5C /* NetworkingEngine */ = {
+			isa = PBXGroup;
+			children = (
+				18DC1BF919712297008EEC5C /* iLIBEngine.h */,
+				18DC1BFA19712297008EEC5C /* iLIBEngine.m */,
+			);
+			name = NetworkingEngine;
+			sourceTree = "<group>";
+		};
 		2C1B3122196BC4F40076E2DF = {
 			isa = PBXGroup;
 			children = (
@@ -219,14 +255,14 @@
 		2C1B3134196BC4F40076E2DF /* iLibrarians */ = {
 			isa = PBXGroup;
 			children = (
+				18DC1BEC1971209A008EEC5C /* Model */,
 				18DC1BC619711F2D008EEC5C /* ThirdParty */,
 				2CB91CBD196C034F00BD961C /* ViewControllers */,
 				2C1B313D196BC4F40076E2DF /* SLAppDelegate.h */,
 				2C1B313E196BC4F40076E2DF /* SLAppDelegate.m */,
 				2C1B3140196BC4F40076E2DF /* Images.xcassets */,
+				18DC1BFD19712363008EEC5C /* NetworkingEngine */,
 				2C1B3135196BC4F40076E2DF /* Supporting Files */,
-				2CB91CC1196C04B700BD961C /* SLNetworkingAPI.h */,
-				2CB91CC2196C04B700BD961C /* SLNetworkingAPI.m */,
 				2CB91CC4196C04C600BD961C /* SLPersistencyAPI.h */,
 				2CB91CC5196C04C600BD961C /* SLPersistencyAPI.m */,
 			);
@@ -378,15 +414,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C1B313B196BC4F40076E2DF /* main.m in Sources */,
+				18DC1BF81971209A008EEC5C /* iLIBFloatBookItem.m in Sources */,
 				18DC1BE419711F2D008EEC5C /* NSDictionary+RequestEncoding.m in Sources */,
 				18DC1BE319711F2D008EEC5C /* NSDate+RFC1123.m in Sources */,
 				18DC1BE719711F2D008EEC5C /* UIImage+EllipseImage.m in Sources */,
 				18DC1BE519711F2D008EEC5C /* NSString+MKNetworkKitAdditions.m in Sources */,
-				2CB91CC3196C04B700BD961C /* SLNetworkingAPI.m in Sources */,
+				18DC1BFB19712297008EEC5C /* iLIBEngine.m in Sources */,
 				18DC1BEA19711F2D008EEC5C /* MKNetworkOperation.m in Sources */,
 				2CD4F03D1971054D0077A967 /* SLMainViewController.m in Sources */,
 				2CB91CC0196C036F00BD961C /* SLLogInViewController.m in Sources */,
+				18DC1BF51971209A008EEC5C /* iLIBBookCircleItem.m in Sources */,
 				2CD4F03A197105400077A967 /* SLMyInfoViewController.m in Sources */,
+				18DC1BF71971209A008EEC5C /* iLIBComment.m in Sources */,
 				18DC1BEB19711F2D008EEC5C /* Reachability.m in Sources */,
 				18DC1BE919711F2D008EEC5C /* MKNetworkEngine.m in Sources */,
 				2CD4F034197104F10077A967 /* SLMyLibraryViewController.m in Sources */,
@@ -397,6 +436,7 @@
 				18DC1BE819711F2D008EEC5C /* UIImageView+MKNetworkKitAdditions.m in Sources */,
 				2C1B313F196BC4F40076E2DF /* SLAppDelegate.m in Sources */,
 				2CD4F0371971050B0077A967 /* SLBooksExchangeViewController.m in Sources */,
+				18DC1BF61971209A008EEC5C /* iLIBBookItem.m in Sources */,
 				18DC1BE219711F2D008EEC5C /* NSData+MKBase64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
