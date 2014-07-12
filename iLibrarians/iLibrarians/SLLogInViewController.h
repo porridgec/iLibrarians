@@ -14,7 +14,6 @@
 
 @interface SLLogInViewController : UIViewController<UITabBarControllerDelegate>
 
-@property (strong,nonatomic) UITabBarController *tabBarController;
 @property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
 

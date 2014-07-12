@@ -29,6 +29,13 @@
     return _sharedInstance;
 }
 
+- (id)init
+{
+    self = [super initWithHostName:kHostUrl customHeaderFields:nil];
+    _engine = [[MKNetworkEngine alloc] initWithHostName:kFloatBookHostUrl customHeaderFields:nil];
+    return self;
+}
+
 #pragma mark Search/MyLib
 
 - (id)loginWithName:(NSString*)studentName password:(NSString*)password
