@@ -10,6 +10,8 @@
 
 @interface SLBooksExchangeViewController ()
 
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
+
 @end
 
 @implementation SLBooksExchangeViewController
@@ -30,25 +32,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self.view setBackgroundColor:[UIColor yellowColor]];
+    [self initView];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)initView
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    CGFloat width = self.view.frame.size.width;
+    CGFloat height = self.view.frame.size.height;
+    NSArray *segmentItems = @[@"闲置", @"求借"];
+    self.segmentedControl = [[UISegmentedControl alloc] initWithItems:segmentItems];
+    [self.segmentedControl setFrame:CGRectMake(0., 0., width, 29.)];
+    [self.view addSubview:self.segmentedControl];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

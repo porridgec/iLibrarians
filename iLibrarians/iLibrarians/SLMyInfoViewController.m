@@ -8,7 +8,10 @@
 
 #import "SLMyInfoViewController.h"
 
-@interface SLMyInfoViewController ()
+@interface SLMyInfoViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *myInfoTable;
+@property (nonatomic, strong) NSArray *tableCellContent;
 
 @end
 
@@ -26,24 +29,58 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self initView];
+    
+    NSArray *content = [[NSArray alloc] initWithObjects:@"关于iLibrarian",@"关于SYSU AppleClub",@"反馈意见",@"去评分",nil];
+    self.tableCellContent = content;
 }
 
-- (void)didReceiveMemoryWarning
+- (void)initView
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    CGFloat width = self.view.frame.size.width;
+    CGFloat height = self.view.frame.size.height;
+    
+    self.myInfoTable = [[UITableView alloc] initWithFrame:CGRectMake(0., 0., width, height - 64.)];
+    [self.myInfoTable setDelegate:self];
+    [self.myInfoTable setDataSource:self];
+    
+    [self.view addSubview:self.myInfoTable];
+    
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+#pragma mark - Table view data source & delegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    return 1;
 }
-*/
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.tableCellContent count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    [cell.textLabel setText:[self.tableCellContent objectAtIndex:indexPath.row]];
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 14;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 @end

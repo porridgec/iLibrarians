@@ -10,6 +10,7 @@
 #import "SLMyLibraryViewController.h"
 #import "SLSearchBookViewController.h"
 #import "SLBooksExchangeViewController.h"
+#import "SLMyInfoViewController.h"
 
 #define NAVIGATION_BAR_HEIGHT 64
 
@@ -33,14 +34,18 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self setTitle:@"图书馆"];
-    [self initView];
+    
+    
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"个人" style:UIBarButtonItemStylePlain target:self action:@selector(goToMyInfo)];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+
 }
 
 - (void)initView
 {
     CGFloat width = self.view.frame.size.width;
     CGFloat height = self.view.frame.size.height;
-    
+
     self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0., 0., width, height)];
     [self.mainScrollView setContentSize:CGSizeMake(width * 3, 0.)];
     [self.mainScrollView setPagingEnabled:YES];
@@ -65,23 +70,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self initView];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)goToMyInfo
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    SLMyInfoViewController *myInfoViewController = [[SLMyInfoViewController alloc] init];
+    [self.navigationController pushViewController:myInfoViewController animated:YES];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
