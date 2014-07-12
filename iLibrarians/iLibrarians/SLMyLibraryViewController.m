@@ -25,12 +25,12 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.view setBackgroundColor:[UIColor blueColor]];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor blueColor]];
 }
 
 - (void)didReceiveMemoryWarning
