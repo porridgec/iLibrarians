@@ -7,8 +7,15 @@
 //
 
 #import "SLMainViewController.h"
+#import "SLMyLibraryViewController.h"
+#import "SLSearchBookViewController.h"
+#import "SLBooksExchangeViewController.h"
+
+#define NAVIGATION_BAR_HEIGHT 64
 
 @interface SLMainViewController ()
+
+@property (nonatomic, strong) UIScrollView *mainScrollView;
 
 @end
 
@@ -28,6 +35,20 @@
     [self setTitle:@"图书馆"];
 }
 
+- (void)initView
+{
+    CGFloat width = self.view.frame.size.width;
+    CGFloat height = self.view.frame.size.height;
+    
+    self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0., NAVIGATION_BAR_HEIGHT, width * 3 , height)];
+    [self.view addSubview:self.mainScrollView];
+    
+    SLMyLibraryViewController *myLibraryViewController = [[SLMyLibraryViewController alloc] init];
+    SLSearchBookViewController *searchBookViewController = [[SLSearchBookViewController alloc] init];
+    SLBooksExchangeViewController *booksExchangeViewController = [[SLBooksExchangeViewController alloc] init];
+    
+    [myLibraryViewController.view setFrame:CGRectMake(0., 0., width, height)];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

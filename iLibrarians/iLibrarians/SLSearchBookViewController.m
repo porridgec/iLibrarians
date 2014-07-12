@@ -1,18 +1,18 @@
 //
-//  SLBooksExchangeViewController.m
+//  SLSearchBookViewController.m
 //  iLibrarians
 //
 //  Created by johnsonpuning on 14-7-12.
 //  Copyright (c) 2014年 Apple Club. All rights reserved.
 //
 
-#import "SLBooksExchangeViewController.h"
+#import "SLSearchBookViewController.h"
 
-@interface SLBooksExchangeViewController ()
+@interface SLSearchBookViewController ()
 
 @end
 
-@implementation SLBooksExchangeViewController
+@implementation SLSearchBookViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,7 +25,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.view setBackgroundColor:[UIColor yellowColor]];
+    [self.view setBackgroundColor:[UIColor redColor]];
 }
 
 - (void)viewDidLoad
