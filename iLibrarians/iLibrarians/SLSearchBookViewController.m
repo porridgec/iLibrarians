@@ -25,13 +25,13 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.view setBackgroundColor:[UIColor redColor]];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.view setBackgroundColor:[UIColor redColor]];
 }
 
 - (void)didReceiveMemoryWarning
