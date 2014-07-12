@@ -8,11 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLLogInViewController : UIViewController
+#import "iLIBEngine.h"
 
-@property (strong, nonatomic) UITabBarController *tabBarController;
-@property (strong, nonatomic) UITextField *usernameTextField;
-@property (strong, nonatomic) UITextField *passwordTextField;
+@class iLIBEngine;
 
+@interface SLLogInViewController : UIViewController<UITabBarControllerDelegate>
+
+@property (strong,nonatomic) UITabBarController *tabBarController;
+@property (strong, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+
+- (IBAction)usernameDidEndOnExit:(id)sender;
+- (IBAction)passwordDidEndOnExit:(id)sender;
+- (IBAction)loginTouchUpInside:(id)sender;
+- (IBAction)backgroundTouchUpInside:(id)sender;
 
 @end

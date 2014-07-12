@@ -1,14 +1,13 @@
-//
-//  SLLogInViewController.m
-//  iLibrarians
-//
-//  Created by johnson on 14-7-8.
-//  Copyright (c) 2014年 Apple Club. All rights reserved.
-//
-
-#import "SLLogInViewController.h"
+#import "SLAppDelegate.h"
+#import "SLLoginViewController.h"
+#import "SLMyLibraryViewController.h"
+#import "SLSearchBookViewController.h"
+#import "SLBooksExchangeViewController.h"
+#import "SLMyInfoViewController.h"
 #import "SLMainViewController.h"
+#import "MBProgressHUD.h"
 
+#define tabbarTintColor [UIColor colorWithRed:0.4157 green:0.9216 blue:0.6784 alpha:1.0]
 @interface SLLogInViewController ()
 
 @end
@@ -24,34 +23,117 @@
     return self;
 }
 
-- (void)initView
+- (void)viewDidLoad
 {
-    UIButton *loginButton = [[UIButton alloc] initWithFrame:CGRectMake(20., 100., 44., 44.)];
-    [loginButton setTitle:@"登录" forState:UIControlStateNormal];
-    [loginButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [loginButton addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:loginButton];
+    [super viewDidLoad];
+    [self setTitle:@"登陆"];
+    self.usernameTextField.placeholder        = @"默认为学号";
+    self.usernameTextField.returnKeyType      = UIReturnKeyNext;
+    self.usernameTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.passwordTextField.placeholder        = @"默认为身份证后六位";
+    self.passwordTextField.returnKeyType      = UIReturnKeyDone;
+    self.passwordTextField.secureTextEntry    = YES;
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    self.usernameTextField.text               = [userDefault objectForKey:@"username"];
+    self.passwordTextField.text               = [userDefault objectForKey:@"password"];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)didReceiveMemoryWarning
 {
-    [self setTitle:@"登陆"];
-    [self initView];
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+- (void)configureTabBar
+{
+    SLMainViewController *mainView           = [[SLMainViewController alloc] initWithNibName:@"SLMainViewController" bundle:nil];
+    SLMyInfoViewController *myLibView         = [[SLMyInfoViewController alloc] initWithNibName:@"SLMyInfoViewController" bundle:nil];
+    SLBooksExchangeViewController *bookFloatView = [[SLBooksExchangeViewController alloc] initWithNibName:@"SLBooksExchangeViewController" bundle:nil];
+        SLMyInfoViewController *moreView           = [[SLMyInfoViewController alloc] initWithNibName:@"SLMyInfoViewController" bundle:nil];
+    
+    UINavigationController *mainNav            = [[UINavigationController alloc] initWithRootViewController:mainView];
+    UINavigationController *myLibNav           = [[UINavigationController alloc] initWithRootViewController:myLibView];
+    UINavigationController *bookFloatNav       = [[UINavigationController alloc] initWithRootViewController:bookFloatView];
+   
+    UINavigationController *moreNav            = [[UINavigationController alloc] initWithRootViewController:moreView];
+    UIColor *barBackgroundColor = [UIColor colorWithRed:106/255.0 green:235/255.0 blue:173/255.0 alpha:1.0];
+    self.tabBarController                      = [[UITabBarController alloc] init];
+    
+    //self.tabBarController.viewControllers      = @[mainNav,bookFloatNav,bookCircleNav,moreNav];
+    [[UITabBar appearance] setTintColor:barBackgroundColor];
+    //[[UITabBar appearance] setBarTintColor:barBackgroundColor];
+    //[[UITabBar appearance] setBackgroundImage:[UIImage imageNamed:@"tabbar2.png"]];
+    //[[UITabBar appearance] setBarTintColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"tabbar2.png"]]];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    //[[UITabBar appearance] setBarTintColor:[UIColor yellowColor]];
+    //self.tabBarController.viewControllers      = @[mainNav,myLibNav,bookFloatNav,bookCircleNav,moreNav];
+    mainNav.navigationBar.barTintColor = barBackgroundColor;
+    myLibNav.navigationBar.barTintColor = barBackgroundColor;
+    bookFloatNav.navigationBar.barTintColor = barBackgroundColor;
+   
+    moreNav.navigationBar.barTintColor = barBackgroundColor;
+    UITabBarItem *mainItem                     = [[UITabBarItem alloc] initWithTitle:@"书目检索" image:[UIImage imageNamed:@"tabbar_mylib.png"] tag:0];
+    [mainView setTabBarItem:mainItem];
+    UITabBarItem *myLibItem                    = [[UITabBarItem alloc] initWithTitle:@"我的图书馆" image:[UIImage imageNamed:@"tabbar_mylib.png"] tag:0];
+    [myLibView setTabBarItem:myLibItem];
+    UITabBarItem *bookFloatItem                = [[UITabBarItem alloc] initWithTitle:@"图书漂流" image:[UIImage imageNamed:@"tabbar_bookfloat.png"] tag:0];
+    [bookFloatView setTabBarItem:bookFloatItem];
+  
+    UITabBarItem *moreItem                     = [[UITabBarItem alloc] initWithTitle:@"个人中心" image:[UIImage imageNamed:@"tabbar_personcenter.png"] tag:0];
+    [moreView setTabBarItem:moreItem];
+}
+
+- (IBAction)backgroundTouchUpInside:(id)sender {
+    [self.usernameTextField resignFirstResponder];
+    [self.passwordTextField resignFirstResponder];
+}
+
+- (IBAction)usernameDidEndOnExit:(id)sender {
+    //[self resignFirstResponder];
+    [self.passwordTextField becomeFirstResponder];
+}
+
+- (IBAction)passwordDidEndOnExit:(id)sender {
+    [self resignFirstResponder];
+    [self login];
+}
+
+- (IBAction)loginTouchUpInside:(id)sender {
+    
+    [self resignFirstResponder];
+    [self login];
+    
 }
 
 - (void)login
 {
-    SLMainViewController *mainViewController = [[SLMainViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
-
-    [self presentViewController:navigationController animated:YES  completion:nil];
+    MBProgressHUD *hud = [[MBProgressHUD alloc]initWithView:self.view];
+    hud.labelText      = @"登录中...";
+    [hud show:YES];
+    hud.dimBackground  = YES;
+    [self.view addSubview:hud];
+    /*
+     [self configureTabBar];
+     [hud removeFromSuperview];
+     [self presentViewController:self.tabBarController animated:YES completion:nil];
+     */
+    [[iLIBEngine sharedInstance] loginWithName:self.usernameTextField.text password:self.passwordTextField.text onSucceeded:^{
+        //NSLog(@"%@ loggin",self.usernameTextField.text);
+        NSUserDefaults *userDefaut = [NSUserDefaults standardUserDefaults];
+        [userDefaut setObject:self.usernameTextField.text forKey:@"username"];
+        [userDefaut setObject:self.passwordTextField.text forKey:@"password"];
+        [userDefaut synchronize];
+        [self configureTabBar];
+        [hud removeFromSuperview];
+        [self presentViewController:self.tabBarController animated:YES completion:nil];
+    }onError:^(NSError *engineError){
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登陆失败" message:@"请检查用户名密码或网络设置" delegate:self cancelButtonTitle:@"寡人知道了" otherButtonTitles:nil];
+        [hud removeFromSuperview];
+        [alert show];
+        NSLog(@"%@ login failed\n",self.usernameTextField.text);
+    }];
 }
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-
 @end

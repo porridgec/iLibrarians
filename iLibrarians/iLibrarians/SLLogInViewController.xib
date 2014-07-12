@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SLLogInViewController">
+            <connections>
+                <outlet property="passwordTextField" destination="drq-YE-i9O" id="wsw-4t-lIh"/>
+                <outlet property="usernameTextField" destination="g0a-rf-8gO" id="Ecy-it-mWw"/>
+                <outlet property="view" destination="fSc-Q9-Kfl" id="zgg-wI-5n0"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="fSc-Q9-Kfl" customClass="UIControl">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="drq-YE-i9O">
+                    <rect key="frame" x="48" y="233" width="217" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="passwordDidEndOnExit:" destination="-1" eventType="editingDidEndOnExit" id="Cfh-tq-Sl5"/>
+                    </connections>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fy5-Fv-4ZW">
+                    <rect key="frame" x="48" y="296" width="217" height="43"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="登录" backgroundImage="item_bg_3.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="loginTouchUpInside:" destination="-1" eventType="touchUpInside" id="zes-J9-bU3"/>
+                    </connections>
+                </button>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="navigation_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZjY-ym-2x7">
+                    <rect key="frame" x="-164" y="-21" width="640" height="85"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="85" id="2dk-Lm-A3A"/>
+                        <constraint firstAttribute="width" constant="640" id="IQL-ZP-ZTt"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcO-aq-QSS">
+                    <rect key="frame" x="137" y="31" width="46" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="D0F-IK-X6G"/>
+                        <constraint firstAttribute="width" constant="46" id="biw-tU-bdR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RVZ-iN-yZg">
+                    <rect key="frame" x="48" y="175" width="217" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g0a-rf-8gO">
+                    <rect key="frame" x="48" y="175" width="217" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="usernameDidEndOnExit:" destination="-1" eventType="editingDidEndOnExit" id="zPI-nR-cCr"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="AcO-aq-QSS" firstAttribute="leading" secondItem="fSc-Q9-Kfl" secondAttribute="leading" constant="137" id="2T3-fE-OJP"/>
+                <constraint firstItem="AcO-aq-QSS" firstAttribute="top" secondItem="fSc-Q9-Kfl" secondAttribute="top" constant="31" id="4S3-w6-xhz"/>
+                <constraint firstAttribute="trailing" secondItem="ZjY-ym-2x7" secondAttribute="trailing" constant="-156" id="Q6V-a3-ffr"/>
+                <constraint firstAttribute="trailing" secondItem="AcO-aq-QSS" secondAttribute="trailing" constant="137" id="nnR-qq-ERi"/>
+                <constraint firstItem="ZjY-ym-2x7" firstAttribute="top" secondItem="fSc-Q9-Kfl" secondAttribute="top" constant="-21" id="oaf-j8-KUL"/>
+                <constraint firstItem="ZjY-ym-2x7" firstAttribute="leading" secondItem="fSc-Q9-Kfl" secondAttribute="leading" constant="-164" id="qSz-L3-Kck"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <action selector="backgroundTouchUpInside:" destination="-1" eventType="touchUpInside" id="qOQ-zz-V24"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="item_bg_3.png" width="570" height="110"/>
+        <image name="navigation_bar.png" width="640" height="88"/>
+    </resources>
+</document>
