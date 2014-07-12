@@ -1,13 +1,13 @@
-//
-//  SLLogInViewController.m
-//  iLibrarians
-//
-//  Created by johnson on 14-7-8.
-//  Copyright (c) 2014年 Apple Club. All rights reserved.
-//
-
-#import "SLLogInViewController.h"
+#import "SLAppDelegate.h"
+#import "SLLoginViewController.h"
+#import "SLMyLibraryViewController.h"
+#import "SLSearchBookViewController.h"
+#import "SLBooksExchangeViewController.h"
+#import "SLMyInfoViewController.h"
 #import "SLMainViewController.h"
+#import "MBProgressHUD.h"
+
+#define tabbarTintColor [UIColor colorWithRed:0.4157 green:0.9216 blue:0.6784 alpha:1.0]
 
 @interface SLLogInViewController ()
 
@@ -24,34 +24,85 @@
     return self;
 }
 
-- (void)initView
+- (void)viewDidLoad
 {
-    UIButton *loginButton = [[UIButton alloc] initWithFrame:CGRectMake(20., 100., 44., 44.)];
-    [loginButton setTitle:@"登录" forState:UIControlStateNormal];
-    [loginButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [loginButton addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:loginButton];
+    [super viewDidLoad];
+    [self setTitle:@"登陆"];
+    self.usernameTextField.placeholder        = @"默认为学号";
+    self.usernameTextField.returnKeyType      = UIReturnKeyNext;
+    self.usernameTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.passwordTextField.placeholder        = @"默认为身份证后六位";
+    self.passwordTextField.returnKeyType      = UIReturnKeyDone;
+    self.passwordTextField.secureTextEntry    = YES;
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    self.usernameTextField.text               = [userDefault objectForKey:@"username"];
+    self.passwordTextField.text               = [userDefault objectForKey:@"password"];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+
+
+- (IBAction)backgroundTouchUpInside:(id)sender
 {
-    [self setTitle:@"登陆"];
-    [self initView];
+    [self.usernameTextField resignFirstResponder];
+    [self.passwordTextField resignFirstResponder];
+}
+
+- (IBAction)usernameDidEndOnExit:(id)sender
+{
+    [self.passwordTextField becomeFirstResponder];
+}
+
+- (IBAction)passwordDidEndOnExit:(id)sender
+{
+    [self resignFirstResponder];
+    [self login];
+}
+
+- (IBAction)loginTouchUpInside:(id)sender
+{
+    [self resignFirstResponder];
+    [self login];
+    
 }
 
 - (void)login
 {
-    SLMainViewController *mainViewController = [[SLMainViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
-
-    [self presentViewController:navigationController animated:YES  completion:nil];
+    if (self.usernameTextField.text == nil || self.passwordTextField.text == nil || [self.usernameTextField.text isEqualToString:@""] || [self.passwordTextField.text isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"完善信息" message:@"用户名和密码不完整" delegate:nil cancelButtonTitle:@"寡人知道了" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    
+    MBProgressHUD *hud = [[MBProgressHUD alloc]initWithView:self.view];
+    hud.labelText      = @"登录中...";
+    [hud show:YES];
+    hud.dimBackground  = YES;
+    [self.view addSubview:hud];
+    
+    [[iLIBEngine sharedInstance] loginWithName:self.usernameTextField.text password:self.passwordTextField.text onSucceeded:^{
+        NSLog(@"%@ loggin",self.usernameTextField.text);
+        NSUserDefaults *userDefaut = [NSUserDefaults standardUserDefaults];
+        [userDefaut setObject:self.usernameTextField.text forKey:@"username"];
+        [userDefaut setObject:self.passwordTextField.text forKey:@"password"];
+        [userDefaut synchronize];
+        [hud removeFromSuperview];
+        [self goToMainViewController];
+    }onError:^(NSError *engineError){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登陆失败" message:@"请检查用户名密码或网络设置" delegate:self cancelButtonTitle:@"寡人知道了" otherButtonTitles:nil];
+        [hud removeFromSuperview];
+        [alert show];
+        
+        [self goToMainViewController];
+        NSLog(@"%@ login failed\n",self.usernameTextField.text);
+    }];
 }
 
-- (void)viewDidLoad
+- (void)goToMainViewController
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    SLMainViewController *mainViewController = [[SLMainViewController alloc] init];
+    UINavigationController *mainNavigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    [self presentViewController:mainNavigationController animated:YES completion:nil];
 }
-
-
 @end
