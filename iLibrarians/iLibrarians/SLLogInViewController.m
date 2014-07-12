@@ -7,6 +7,7 @@
 //
 
 #import "SLLogInViewController.h"
+#import "SLMainViewController.h"
 
 @interface SLLogInViewController ()
 
@@ -25,13 +26,25 @@
 
 - (void)initView
 {
-
+    UIButton *loginButton = [[UIButton alloc] initWithFrame:CGRectMake(20., 100., 44., 44.)];
+    [loginButton setTitle:@"登录" forState:UIControlStateNormal];
+    [loginButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [loginButton addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:loginButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self setTitle:@"登陆"];
     [self initView];
+}
+
+- (void)login
+{
+    SLMainViewController *mainViewController = [[SLMainViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+
+    [self presentViewController:navigationController animated:YES  completion:nil];
 }
 
 - (void)viewDidLoad

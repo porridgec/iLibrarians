@@ -22,6 +22,10 @@
 		2CB91CC0196C036F00BD961C /* SLLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB91CBF196C036F00BD961C /* SLLogInViewController.m */; };
 		2CB91CC3196C04B700BD961C /* SLNetworkingAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB91CC2196C04B700BD961C /* SLNetworkingAPI.m */; };
 		2CB91CC6196C04C600BD961C /* SLPersistencyAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB91CC5196C04C600BD961C /* SLPersistencyAPI.m */; };
+		2CD4F034197104F10077A967 /* SLMyLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F033197104F10077A967 /* SLMyLibraryViewController.m */; };
+		2CD4F0371971050B0077A967 /* SLBooksExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F0361971050B0077A967 /* SLBooksExchangeViewController.m */; };
+		2CD4F03A197105400077A967 /* SLMyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F039197105400077A967 /* SLMyInfoViewController.m */; };
+		2CD4F03D1971054D0077A967 /* SLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F03C1971054D0077A967 /* SLMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,14 @@
 		2CB91CC2196C04B700BD961C /* SLNetworkingAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLNetworkingAPI.m; sourceTree = "<group>"; };
 		2CB91CC4196C04C600BD961C /* SLPersistencyAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLPersistencyAPI.h; sourceTree = "<group>"; };
 		2CB91CC5196C04C600BD961C /* SLPersistencyAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLPersistencyAPI.m; sourceTree = "<group>"; };
+		2CD4F032197104F10077A967 /* SLMyLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMyLibraryViewController.h; sourceTree = "<group>"; };
+		2CD4F033197104F10077A967 /* SLMyLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMyLibraryViewController.m; sourceTree = "<group>"; };
+		2CD4F0351971050B0077A967 /* SLBooksExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBooksExchangeViewController.h; sourceTree = "<group>"; };
+		2CD4F0361971050B0077A967 /* SLBooksExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBooksExchangeViewController.m; sourceTree = "<group>"; };
+		2CD4F038197105400077A967 /* SLMyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMyInfoViewController.h; sourceTree = "<group>"; };
+		2CD4F039197105400077A967 /* SLMyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMyInfoViewController.m; sourceTree = "<group>"; };
+		2CD4F03B1971054D0077A967 /* SLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMainViewController.h; sourceTree = "<group>"; };
+		2CD4F03C1971054D0077A967 /* SLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +175,14 @@
 			children = (
 				2CB91CBE196C036F00BD961C /* SLLogInViewController.h */,
 				2CB91CBF196C036F00BD961C /* SLLogInViewController.m */,
+				2CD4F03B1971054D0077A967 /* SLMainViewController.h */,
+				2CD4F03C1971054D0077A967 /* SLMainViewController.m */,
+				2CD4F032197104F10077A967 /* SLMyLibraryViewController.h */,
+				2CD4F033197104F10077A967 /* SLMyLibraryViewController.m */,
+				2CD4F0351971050B0077A967 /* SLBooksExchangeViewController.h */,
+				2CD4F0361971050B0077A967 /* SLBooksExchangeViewController.m */,
+				2CD4F038197105400077A967 /* SLMyInfoViewController.h */,
+				2CD4F039197105400077A967 /* SLMyInfoViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -265,9 +285,13 @@
 			files = (
 				2C1B313B196BC4F40076E2DF /* main.m in Sources */,
 				2CB91CC3196C04B700BD961C /* SLNetworkingAPI.m in Sources */,
+				2CD4F03D1971054D0077A967 /* SLMainViewController.m in Sources */,
 				2CB91CC0196C036F00BD961C /* SLLogInViewController.m in Sources */,
+				2CD4F03A197105400077A967 /* SLMyInfoViewController.m in Sources */,
+				2CD4F034197104F10077A967 /* SLMyLibraryViewController.m in Sources */,
 				2CB91CC6196C04C600BD961C /* SLPersistencyAPI.m in Sources */,
 				2C1B313F196BC4F40076E2DF /* SLAppDelegate.m in Sources */,
+				2CD4F0371971050B0077A967 /* SLBooksExchangeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
