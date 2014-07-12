@@ -10,6 +10,9 @@
 
 @interface SLSearchBookViewController ()
 
+@property (nonatomic, strong) UITextField *searchTextField;
+@property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
+
 @end
 
 @implementation SLSearchBookViewController
@@ -23,32 +26,53 @@
     return self;
 }
 
+- (void)initView
+{
+    self.searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(60., 160., 200., 30.)];
+    [self.searchTextField setPlaceholder:@"书名/作者/ISBN"];
+    [self.searchTextField setTextAlignment:NSTextAlignmentCenter];
+    [self.searchTextField setReturnKeyType:UIReturnKeySearch];
+    [self.searchTextField setAutocapitalizationType:UITextAutocapitalizationTypeWords];
+    [self.searchTextField setAutocorrectionType:UITextAutocorrectionTypeNo];
+    [self.searchTextField setBorderStyle:UITextBorderStyleRoundedRect];
+    [self.view addSubview:self.searchTextField];
+    
+    /*
+    [self.searchTextField addTarget:self action:@selector(SearchTextFieldDidEndOnExit:) forControlEvents:UIControlEventEditingDidEndOnExit];
+    [self.searchTextField addTarget:self action:@selector(SearchTextFieldEditBegin:) forControlEvents:UIControlEventEditingDidBegin];
+    [self.searchTextField addTarget:self action:@selector(SearchTextFieldEditEnd:) forControlEvents:UIControlEventEditingDidEnd];
+    
+    self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapRecognizer:)];
+    [self.view addGestureRecognizer:self.tapGestureRecognizer];*/
+}
+
+- (void)tapRecognizer:(UITapGestureRecognizer*)tapGestureRecognizer
+{
+    [self.searchTextField resignFirstResponder];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self.view setBackgroundColor:[UIColor redColor]];
+    [self initView];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - TextField Delegate
+
+//click return to start search
+- (void)SearchTextFieldDidEndOnExit:(id)sender {
+    [self.searchTextField resignFirstResponder];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)SearchTextFieldEditBegin:(id)sender {
 }
-*/
+
+- (void)SearchTextFieldEditEnd:(id)sender {
+}
 
 @end
