@@ -42,9 +42,7 @@
 		2CD4F03A197105400077A967 /* SLMyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F039197105400077A967 /* SLMyInfoViewController.m */; };
 		2CD4F03D1971054D0077A967 /* SLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F03C1971054D0077A967 /* SLMainViewController.m */; };
 		2CD4F04319710E230077A967 /* SLSearchBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F04219710E230077A967 /* SLSearchBookViewController.m */; };
-<<<<<<< HEAD
-		2CD4F046197135940077A967 /* SLPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F045197135940077A967 /* SLPublishViewController.m */; };
-=======
+		2CEF08871971802A002DDEDC /* SLPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08861971802A002DDEDC /* SLPublishViewController.m */; };
 		8B17BC0B19712EC600F8B6A9 /* SLLogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B17BC0A19712EC600F8B6A9 /* SLLogInViewController.xib */; };
 		8B17BC0E1971370F00F8B6A9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B17BC0D1971370F00F8B6A9 /* MBProgressHUD.m */; };
 		8B17BC411971396400F8B6A9 /* icon_114@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B17BC111971396400F8B6A9 /* icon_114@2x.png */; };
@@ -125,7 +123,6 @@
 		8B17BCAD19713B2C00F8B6A9 /* tabbar_icon_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B17BC8D19713B2C00F8B6A9 /* tabbar_icon_3.png */; };
 		8B17BCAE19713B2C00F8B6A9 /* tabbar_icon_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B17BC8E19713B2C00F8B6A9 /* tabbar_icon_4.png */; };
 		8B17BCAF19713B2C00F8B6A9 /* text_input.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B17BC8F19713B2C00F8B6A9 /* text_input.png */; };
->>>>>>> Login
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,10 +199,8 @@
 		2CD4F03C1971054D0077A967 /* SLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMainViewController.m; sourceTree = "<group>"; };
 		2CD4F04119710E230077A967 /* SLSearchBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSearchBookViewController.h; sourceTree = "<group>"; };
 		2CD4F04219710E230077A967 /* SLSearchBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSearchBookViewController.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
-		2CD4F044197135940077A967 /* SLPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLPublishViewController.h; sourceTree = "<group>"; };
-		2CD4F045197135940077A967 /* SLPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLPublishViewController.m; sourceTree = "<group>"; };
-=======
+		2CEF08851971802A002DDEDC /* SLPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLPublishViewController.h; sourceTree = "<group>"; };
+		2CEF08861971802A002DDEDC /* SLPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLPublishViewController.m; sourceTree = "<group>"; };
 		8B17BC0A19712EC600F8B6A9 /* SLLogInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLLogInViewController.xib; sourceTree = "<group>"; };
 		8B17BC0C1971370000F8B6A9 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		8B17BC0D1971370F00F8B6A9 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -287,7 +282,6 @@
 		8B17BC8D19713B2C00F8B6A9 /* tabbar_icon_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_icon_3.png; sourceTree = "<group>"; };
 		8B17BC8E19713B2C00F8B6A9 /* tabbar_icon_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_icon_4.png; sourceTree = "<group>"; };
 		8B17BC8F19713B2C00F8B6A9 /* text_input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text_input.png; sourceTree = "<group>"; };
->>>>>>> Login
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -487,8 +481,8 @@
 				2CD4F0361971050B0077A967 /* SLBooksExchangeViewController.m */,
 				2CD4F038197105400077A967 /* SLMyInfoViewController.h */,
 				2CD4F039197105400077A967 /* SLMyInfoViewController.m */,
-				2CD4F044197135940077A967 /* SLPublishViewController.h */,
-				2CD4F045197135940077A967 /* SLPublishViewController.m */,
+				2CEF08851971802A002DDEDC /* SLPublishViewController.h */,
+				2CEF08861971802A002DDEDC /* SLPublishViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -809,9 +803,9 @@
 				18DC1BE819711F2D008EEC5C /* UIImageView+MKNetworkKitAdditions.m in Sources */,
 				2C1B313F196BC4F40076E2DF /* SLAppDelegate.m in Sources */,
 				2CD4F0371971050B0077A967 /* SLBooksExchangeViewController.m in Sources */,
-				2CD4F046197135940077A967 /* SLPublishViewController.m in Sources */,
 				18DC1BF61971209A008EEC5C /* iLIBBookItem.m in Sources */,
 				18DC1BE219711F2D008EEC5C /* NSData+MKBase64.m in Sources */,
+				2CEF08871971802A002DDEDC /* SLPublishViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
