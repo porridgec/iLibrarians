@@ -124,6 +124,7 @@
 		8B17BCAE19713B2C00F8B6A9 /* tabbar_icon_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B17BC8E19713B2C00F8B6A9 /* tabbar_icon_4.png */; };
 		8B17BCAF19713B2C00F8B6A9 /* text_input.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B17BC8F19713B2C00F8B6A9 /* text_input.png */; };
 		A9C5E580197574880096EBBF /* SLSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C5E57F197574880096EBBF /* SLSearchResultViewController.m */; };
+		A9C5E583197575600096EBBF /* SLBookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C5E582197575600096EBBF /* SLBookDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -285,6 +286,8 @@
 		8B17BC8F19713B2C00F8B6A9 /* text_input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = text_input.png; sourceTree = "<group>"; };
 		A9C5E57E197574880096EBBF /* SLSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSearchResultViewController.h; sourceTree = "<group>"; };
 		A9C5E57F197574880096EBBF /* SLSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSearchResultViewController.m; sourceTree = "<group>"; };
+		A9C5E581197575600096EBBF /* SLBookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBookDetailViewController.h; sourceTree = "<group>"; };
+		A9C5E582197575600096EBBF /* SLBookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBookDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -482,6 +485,8 @@
 				2CD4F04219710E230077A967 /* SLSearchBookViewController.m */,
 				A9C5E57E197574880096EBBF /* SLSearchResultViewController.h */,
 				A9C5E57F197574880096EBBF /* SLSearchResultViewController.m */,
+				A9C5E581197575600096EBBF /* SLBookDetailViewController.h */,
+				A9C5E582197575600096EBBF /* SLBookDetailViewController.m */,
 				2CD4F0351971050B0077A967 /* SLBooksExchangeViewController.h */,
 				2CD4F0361971050B0077A967 /* SLBooksExchangeViewController.m */,
 				2CD4F038197105400077A967 /* SLMyInfoViewController.h */,
@@ -802,6 +807,7 @@
 				18DC1BEB19711F2D008EEC5C /* Reachability.m in Sources */,
 				18DC1BE919711F2D008EEC5C /* MKNetworkEngine.m in Sources */,
 				2CD4F034197104F10077A967 /* SLMyLibraryViewController.m in Sources */,
+				A9C5E583197575600096EBBF /* SLBookDetailViewController.m in Sources */,
 				2CD4F04319710E230077A967 /* SLSearchBookViewController.m in Sources */,
 				18DC1BE119711F2D008EEC5C /* NSAlert+MKNetworkKitAdditions.m in Sources */,
 				18DC1BE619711F2D008EEC5C /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
