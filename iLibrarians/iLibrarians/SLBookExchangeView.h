@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLBookExchangeView : UIView
+@interface SLBookExchangeView : UIView <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UIButton *publishButton;
 

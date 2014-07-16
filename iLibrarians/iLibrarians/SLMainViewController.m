@@ -59,7 +59,7 @@
     SLSearchBookViewController *searchBookViewController = [[SLSearchBookViewController alloc] init];
     SLBookExchangeView *bookExchangeView = [[SLBookExchangeView alloc] initWithFrame:CGRectMake(0.+ width + width, 0., width, height)];
     [bookExchangeView.publishButton addTarget:self action:@selector(goToMyInfo) forControlEvents:UIControlEventTouchUpInside];
-    //[self.mainScrollView setContentOffset:CGPointMake(640, 0)];
+    [self.mainScrollView setContentOffset:CGPointMake(640, 0)];
 
     
     [myLibraryViewController.view setFrame:CGRectMake(0., 0., width, height)];
