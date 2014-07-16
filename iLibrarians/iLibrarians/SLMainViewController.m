@@ -9,8 +9,9 @@
 #import "SLMainViewController.h"
 #import "SLMyLibraryViewController.h"
 #import "SLSearchBookViewController.h"
-#import "SLBooksExchangeViewController.h"
 #import "SLMyInfoViewController.h"
+
+#import "SLBookExchangeView.h"
 
 #define NAVIGATION_BAR_HEIGHT 64
 
@@ -56,15 +57,17 @@
     
     SLMyLibraryViewController *myLibraryViewController = [[SLMyLibraryViewController alloc] init];
     SLSearchBookViewController *searchBookViewController = [[SLSearchBookViewController alloc] init];
-    SLBooksExchangeViewController *booksExchangeViewController = [[SLBooksExchangeViewController alloc] init];
+    SLBookExchangeView *bookExchangeView = [[SLBookExchangeView alloc] initWithFrame:CGRectMake(0.+ width + width, 0., width, height)];
+    [bookExchangeView.publishButton addTarget:self action:@selector(goToMyInfo) forControlEvents:UIControlEventTouchUpInside];
+    //[self.mainScrollView setContentOffset:CGPointMake(640, 0)];
+
     
     [myLibraryViewController.view setFrame:CGRectMake(0., 0., width, height)];
     [searchBookViewController.view setFrame:CGRectMake(0.+ width, 0., width, height)];
-    [booksExchangeViewController.view setFrame:CGRectMake(0.+ width + width, 0., width, height)];
-    
+
     [self.mainScrollView addSubview:myLibraryViewController.view];
     [self.mainScrollView addSubview:searchBookViewController.view];
-    [self.mainScrollView addSubview:booksExchangeViewController.view];
+    [self.mainScrollView addSubview:bookExchangeView];
 }
 
 - (void)viewDidLoad

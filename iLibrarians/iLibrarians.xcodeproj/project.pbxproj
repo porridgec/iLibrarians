@@ -125,6 +125,7 @@
 		8B17BCAF19713B2C00F8B6A9 /* text_input.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B17BC8F19713B2C00F8B6A9 /* text_input.png */; };
 		A9C5E580197574880096EBBF /* SLSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C5E57F197574880096EBBF /* SLSearchResultViewController.m */; };
 		A9C5E583197575600096EBBF /* SLBookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C5E582197575600096EBBF /* SLBookDetailViewController.m */; };
+		F6A4560819765BEF00EEF2C6 /* SLBookExchangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A4560719765BEF00EEF2C6 /* SLBookExchangeView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -288,6 +289,8 @@
 		A9C5E57F197574880096EBBF /* SLSearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSearchResultViewController.m; sourceTree = "<group>"; };
 		A9C5E581197575600096EBBF /* SLBookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBookDetailViewController.h; sourceTree = "<group>"; };
 		A9C5E582197575600096EBBF /* SLBookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBookDetailViewController.m; sourceTree = "<group>"; };
+		F6A4560619765BEF00EEF2C6 /* SLBookExchangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBookExchangeView.h; sourceTree = "<group>"; };
+		F6A4560719765BEF00EEF2C6 /* SLBookExchangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBookExchangeView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -489,6 +492,8 @@
 				A9C5E582197575600096EBBF /* SLBookDetailViewController.m */,
 				2CD4F0351971050B0077A967 /* SLBooksExchangeViewController.h */,
 				2CD4F0361971050B0077A967 /* SLBooksExchangeViewController.m */,
+				F6A4560619765BEF00EEF2C6 /* SLBookExchangeView.h */,
+				F6A4560719765BEF00EEF2C6 /* SLBookExchangeView.m */,
 				2CD4F038197105400077A967 /* SLMyInfoViewController.h */,
 				2CD4F039197105400077A967 /* SLMyInfoViewController.m */,
 				2CEF08851971802A002DDEDC /* SLPublishViewController.h */,
@@ -810,6 +815,7 @@
 				A9C5E583197575600096EBBF /* SLBookDetailViewController.m in Sources */,
 				2CD4F04319710E230077A967 /* SLSearchBookViewController.m in Sources */,
 				18DC1BE119711F2D008EEC5C /* NSAlert+MKNetworkKitAdditions.m in Sources */,
+				F6A4560819765BEF00EEF2C6 /* SLBookExchangeView.m in Sources */,
 				18DC1BE619711F2D008EEC5C /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
 				2CB91CC6196C04C600BD961C /* SLPersistencyAPI.m in Sources */,
 				18DC1BE819711F2D008EEC5C /* UIImageView+MKNetworkKitAdditions.m in Sources */,
