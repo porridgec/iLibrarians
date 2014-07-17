@@ -81,6 +81,8 @@
     self.exchangeTableView.delegate = self;
     self.exchangeTableView.dataSource = self;
     self.iLibEngine = [SLAppDelegate sharedDelegate].iLibEngine;
+    
+    
     [_header beginRefreshing];
     return self;
 }
