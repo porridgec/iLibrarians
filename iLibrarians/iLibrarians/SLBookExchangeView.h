@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class iLIBFloatBookItem;
 @interface SLBookExchangeView : UIView <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UIButton *publishButton;

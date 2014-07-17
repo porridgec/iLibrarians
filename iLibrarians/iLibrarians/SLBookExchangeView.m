@@ -12,6 +12,7 @@
 #import "MJRefresh.h"
 #import "ArrayDataSource.h"
 #import "iLIBEngine.h"
+#import "SLBookExchangeCell.h"
 
 #define NAVIGATONBAR_HEIGHT 32
 #define SEGMENT_HEIGHT 29
@@ -30,6 +31,7 @@
 @property(nonatomic,assign) int pageCount;
 @property(nonatomic,strong) iLIBEngine *iLibEngine;
 @property(nonatomic,strong) NSMutableArray *booksArray;
+@property(nonatomic,strong) ArrayDataSource *booksDataSource;
 
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) UITableView *exchangeTableView;
@@ -69,11 +71,18 @@
     _footer.scrollView = self.exchangeTableView;
     _pageCount = 1;
     
-
-    _iLibEngine = [SLAppDelegate sharedDelegate].iLibEngine;
-    [_iLibEngine getFloatBooksWithType:@"0" page:_pageCount onSuccess:^(NSArray *bookArray) {
-        bookArray = (id)bookArray;
-        [self setupTableView];
+    
+    self.iLibEngine = [SLAppDelegate sharedDelegate].iLibEngine;
+    if (! self.iLibEngine) {
+        NSLog(@"nooo");
+    }
+    [self.iLibEngine getFloatBooksWithType:@"0" page:_pageCount onSuccess:^(NSArray *bookArray) {
+        self.booksArray = (id)bookArray;
+        NSLog(@"%lu", (unsigned long)self.booksArray.count);
+        //[self setupTableView];
+        self.exchangeTableView.delegate = self;
+        self.exchangeTableView.dataSource = self;
+        [self.exchangeTableView reloadData];
     } onError:^(NSError *engineError) {
         [UIAlertView showWithText:@"获取漂流图书数据失败，请重试"];
     }];
@@ -88,31 +97,34 @@
 
 - (void)setupTableView
 {
-    TableViewConfigureBlock configureBlock = ^(iLIBBookFloatCell *cell,iLIBFloatBookItem *bookItem)
+    TableViewConfigureBlock configureBlock = ^(SLBookExchangeCell *cell,iLIBFloatBookItem *bookItem)
     {
         [cell configureForCell:bookItem];
     };
-    _booksDataSource = [[ArrayDataSource alloc] initWithItems:_booksArray cellIndetifier:@"iLIBBookFloatCell" configureCellBlock:configureBlock];
+    _booksDataSource = [[ArrayDataSource alloc] initWithItems:_booksArray cellIndetifier:@"SLBookExchangeCell" configureCellBlock:configureBlock];
     _booksDataSource.items = _booksArray;
-    _tableView.delegate = (id)self;
-    _tableView.dataSource = _booksDataSource;
-    [_tableView reloadData];
+    self.exchangeTableView.delegate = (id)self;
+    self.exchangeTableView.dataSource = _booksDataSource;
+    [self.exchangeTableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    if (self.booksArray) {
+        return  [self.booksArray count];
+    }
+    return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"SLCommentCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    SLBookExchangeCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[SLBookExchangeCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"Row %d", indexPath.row];
+    [cell configureForCell:[self.booksArray objectAtIndex:indexPath.row]];
     return cell;
 }
 
@@ -120,7 +132,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 40;
+    return 88;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -131,6 +131,7 @@
 		F6A456141976676B00EEF2C6 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A4560F1976676B00EEF2C6 /* MJRefreshFooterView.m */; };
 		F6A456151976676B00EEF2C6 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A456111976676B00EEF2C6 /* MJRefreshHeaderView.m */; };
 		F6A456191976678100EEF2C6 /* ArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A456181976678100EEF2C6 /* ArrayDataSource.m */; };
+		F6A456221977602D00EEF2C6 /* SLBookExchangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A456211977602D00EEF2C6 /* SLBookExchangeCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +307,8 @@
 		F6A456111976676B00EEF2C6 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
 		F6A456171976678100EEF2C6 /* ArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayDataSource.h; sourceTree = "<group>"; };
 		F6A456181976678100EEF2C6 /* ArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayDataSource.m; sourceTree = "<group>"; };
+		F6A456201977602D00EEF2C6 /* SLBookExchangeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBookExchangeCell.h; sourceTree = "<group>"; };
+		F6A456211977602D00EEF2C6 /* SLBookExchangeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBookExchangeCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -451,6 +454,7 @@
 				18DC1BEC1971209A008EEC5C /* Model */,
 				18DC1BC619711F2D008EEC5C /* ThirdParty */,
 				2CB91CBD196C034F00BD961C /* ViewControllers */,
+				F6A4561F19775FEE00EEF2C6 /* Cell */,
 				2C1B313D196BC4F40076E2DF /* SLAppDelegate.h */,
 				2C1B313E196BC4F40076E2DF /* SLAppDelegate.m */,
 				2C1B3140196BC4F40076E2DF /* Images.xcassets */,
@@ -660,6 +664,15 @@
 			path = ArrayDataSource;
 			sourceTree = "<group>";
 		};
+		F6A4561F19775FEE00EEF2C6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F6A456201977602D00EEF2C6 /* SLBookExchangeCell.h */,
+				F6A456211977602D00EEF2C6 /* SLBookExchangeCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -852,6 +865,7 @@
 				18DC1BF51971209A008EEC5C /* iLIBBookCircleItem.m in Sources */,
 				A9C5E580197574880096EBBF /* SLSearchResultViewController.m in Sources */,
 				2CD4F03A197105400077A967 /* SLMyInfoViewController.m in Sources */,
+				F6A456221977602D00EEF2C6 /* SLBookExchangeCell.m in Sources */,
 				18DC1BF71971209A008EEC5C /* iLIBComment.m in Sources */,
 				18DC1BEB19711F2D008EEC5C /* Reachability.m in Sources */,
 				18DC1BE919711F2D008EEC5C /* MKNetworkEngine.m in Sources */,
