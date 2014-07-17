@@ -60,6 +60,7 @@
     
     SLSearchResultViewController *resultViewController = [[SLSearchResultViewController alloc] init];
     [self.vc.navigationController pushViewController:resultViewController animated:YES];
+    resultViewController.searchString = self.searchTextField.text;
     
     [self.searchTextField resignFirstResponder];
 }

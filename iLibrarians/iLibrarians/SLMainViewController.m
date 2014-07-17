@@ -53,6 +53,7 @@
     [self.mainScrollView setScrollEnabled:YES];
     [self.mainScrollView setAlwaysBounceHorizontal:YES];
     [self.mainScrollView setAlwaysBounceVertical:NO];
+    [self.mainScrollView setContentOffset:CGPointMake(320, 0)];
     [self.view addSubview:self.mainScrollView];
     
     SLMyLibraryViewController *myLibraryViewController = [[SLMyLibraryViewController alloc] init];

@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "iLIBEngine.h"
 #import "SLMainViewController.h"
 
 @interface SLSearchBookView : UIView
 
 @property (strong,nonatomic) SLMainViewController *vc;
+@property (strong,nonatomic) NSString *searchRequest;
+@property (strong,nonatomic) iLIBEngine *iLibEngine;
 
 @end

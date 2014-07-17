@@ -37,6 +37,7 @@
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     self.usernameTextField.text               = [userDefault objectForKey:@"username"];
     self.passwordTextField.text               = [userDefault objectForKey:@"password"];
+    
 }
 
 
