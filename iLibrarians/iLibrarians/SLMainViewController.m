@@ -59,6 +59,7 @@
     SLBooksExchangeViewController *booksExchangeViewController = [[SLBooksExchangeViewController alloc] init];
     
     SLSearchBookView *searchBookView = [[SLSearchBookView alloc] initWithFrame:CGRectMake(0.+ width, 0., width, height)];
+    searchBookView.vc = self;
     
     [myLibraryViewController.view setFrame:CGRectMake(0., 0., width, height)];
     [booksExchangeViewController.view setFrame:CGRectMake(0.+ width + width, 0., width, height)];

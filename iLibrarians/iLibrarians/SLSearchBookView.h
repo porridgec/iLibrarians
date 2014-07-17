@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SLMainViewController.h"
 
 @interface SLSearchBookView : UIView
+
+@property (strong,nonatomic) SLMainViewController *vc;
 
 @end

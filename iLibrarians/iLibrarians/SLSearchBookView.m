@@ -7,6 +7,7 @@
 //
 
 #import "SLSearchBookView.h"
+#import "SLSearchResultViewController.h"
 
 @interface SLSearchBookView ()
 
@@ -56,6 +57,10 @@
 
 //click return to start search
 - (void)SearchTextFieldDidEndOnExit:(id)sender {
+    
+    SLSearchResultViewController *resultViewController = [[SLSearchResultViewController alloc] init];
+    [self.vc.navigationController pushViewController:resultViewController animated:YES];
+    
     [self.searchTextField resignFirstResponder];
 }
 
