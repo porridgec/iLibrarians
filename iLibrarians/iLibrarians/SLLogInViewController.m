@@ -67,35 +67,36 @@
 
 - (void)login
 {
-    if (self.usernameTextField.text == nil || self.passwordTextField.text == nil || [self.usernameTextField.text isEqualToString:@""] || [self.passwordTextField.text isEqualToString:@""])
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"完善信息" message:@"用户名和密码不完整" delegate:nil cancelButtonTitle:@"寡人知道了" otherButtonTitles: nil];
-        [alert show];
-        return;
-    }
-    
-    MBProgressHUD *hud = [[MBProgressHUD alloc]initWithView:self.view];
-    hud.labelText      = @"登录中...";
-    [hud show:YES];
-    hud.dimBackground  = YES;
-    [self.view addSubview:hud];
-    
-    [[iLIBEngine sharedInstance] loginWithName:self.usernameTextField.text password:self.passwordTextField.text onSucceeded:^{
-        NSLog(@"%@ loggin",self.usernameTextField.text);
-        NSUserDefaults *userDefaut = [NSUserDefaults standardUserDefaults];
-        [userDefaut setObject:self.usernameTextField.text forKey:@"username"];
-        [userDefaut setObject:self.passwordTextField.text forKey:@"password"];
-        [userDefaut synchronize];
-        [hud removeFromSuperview];
-        [self goToMainViewController];
-    }onError:^(NSError *engineError){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登陆失败" message:@"请检查用户名密码或网络设置" delegate:self cancelButtonTitle:@"寡人知道了" otherButtonTitles:nil];
-        [hud removeFromSuperview];
-        [alert show];
-        
-        [self goToMainViewController];
-        NSLog(@"%@ login failed\n",self.usernameTextField.text);
-    }];
+//    if (self.usernameTextField.text == nil || self.passwordTextField.text == nil || [self.usernameTextField.text isEqualToString:@""] || [self.passwordTextField.text isEqualToString:@""])
+//    {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"完善信息" message:@"用户名和密码不完整" delegate:nil cancelButtonTitle:@"寡人知道了" otherButtonTitles: nil];
+//        [alert show];
+//        return;
+//    }
+//    
+//    MBProgressHUD *hud = [[MBProgressHUD alloc]initWithView:self.view];
+//    hud.labelText      = @"登录中...";
+//    [hud show:YES];
+//    hud.dimBackground  = YES;
+//    [self.view addSubview:hud];
+//    
+//    [[iLIBEngine sharedInstance] loginWithName:self.usernameTextField.text password:self.passwordTextField.text onSucceeded:^{
+//        NSLog(@"%@ loggin",self.usernameTextField.text);
+//        NSUserDefaults *userDefaut = [NSUserDefaults standardUserDefaults];
+//        [userDefaut setObject:self.usernameTextField.text forKey:@"username"];
+//        [userDefaut setObject:self.passwordTextField.text forKey:@"password"];
+//        [userDefaut synchronize];
+//        [hud removeFromSuperview];
+//        [self goToMainViewController];
+//    }onError:^(NSError *engineError){
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登陆失败" message:@"请检查用户名密码或网络设置" delegate:self cancelButtonTitle:@"寡人知道了" otherButtonTitles:nil];
+//        [hud removeFromSuperview];
+//        [alert show];
+//        
+//        [self goToMainViewController];
+//        NSLog(@"%@ login failed\n",self.usernameTextField.text);
+//    }];
+    [self goToMainViewController];
 }
 
 - (void)goToMainViewController
