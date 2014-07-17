@@ -14,11 +14,14 @@
 
 @implementation SLBookDetailViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
         // Custom initialization
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, 320, 463)];
+        self.textFieldBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, 528, 320, 40)];
+        
     }
     return self;
 }
@@ -35,15 +38,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

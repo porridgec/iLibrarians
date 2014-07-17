@@ -10,10 +10,10 @@
 #import "SLBookExchangeView.h"
 #import "SLPublishViewController.h"
 #import "MJRefresh.h"
-#import "ArrayDataSource.h"
 #import "iLIBEngine.h"
 #import "SLBookExchangeCell.h"
 #import "SLMyInfoViewController.h"
+#import "SLBookDetailViewController.h"
 
 #define NAVIGATONBAR_HEIGHT 32
 #define SEGMENT_HEIGHT 29
@@ -33,7 +33,6 @@
 @property(nonatomic,assign) int pageCount;
 @property(nonatomic,strong) iLIBEngine *iLibEngine;
 @property(nonatomic,strong) NSMutableArray *booksArray;
-@property(nonatomic,strong) ArrayDataSource *booksDataSource;
 
 @property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) UITableView *exchangeTableView;
@@ -91,20 +90,6 @@
 
 #pragma mark - Table View DataSource
 
-
-- (void)setupTableView
-{
-    TableViewConfigureBlock configureBlock = ^(SLBookExchangeCell *cell,iLIBFloatBookItem *bookItem)
-    {
-        [cell configureForCell:bookItem];
-    };
-    _booksDataSource = [[ArrayDataSource alloc] initWithItems:_booksArray cellIndetifier:@"SLBookExchangeCell" configureCellBlock:configureBlock];
-    _booksDataSource.items = _booksArray;
-    self.exchangeTableView.delegate = (id)self;
-    self.exchangeTableView.dataSource = _booksDataSource;
-    [self.exchangeTableView reloadData];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.booksArray) {
@@ -134,8 +119,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SLMyInfoViewController *myInfoViewController = [[SLMyInfoViewController alloc] init];
-    [self.controller.navigationController pushViewController:myInfoViewController animated:YES];
+    SLBookDetailViewController *detailViewController = [[SLBookDetailViewController alloc] init];
+    [self.controller.navigationController pushViewController:detailViewController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -159,6 +144,7 @@
     }
     else if ([refreshView isMemberOfClass:[MJRefreshHeaderView class]])
     {
+        _pageCount = 1;
         [self.iLibEngine getFloatBooksWithType:[NSString stringWithFormat:@"%d",self.segmentedControl.selectedSegmentIndex] page:_pageCount onSuccess:^(NSArray *bookArray) {
             self.booksArray = (id)bookArray;
             [_header endRefreshing];
@@ -177,7 +163,6 @@
     _pageCount = 1;
     [_iLibEngine getFloatBooksWithType:[NSString stringWithFormat:@"%d",self.segmentedControl.selectedSegmentIndex] page:_pageCount onSuccess:^(NSArray *bookArray) {
         _booksArray = (id)bookArray;
-        _booksDataSource.items = self.booksArray;
         [self.exchangeTableView reloadData];
     } onError:^(NSError *engineError) {
         [UIAlertView showWithText:@"获取漂流图书数据失败，请重试"];
