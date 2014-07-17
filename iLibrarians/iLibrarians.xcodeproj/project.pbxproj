@@ -126,12 +126,12 @@
 		A9C5E580197574880096EBBF /* SLSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C5E57F197574880096EBBF /* SLSearchResultViewController.m */; };
 		A9C5E583197575600096EBBF /* SLBookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C5E582197575600096EBBF /* SLBookDetailViewController.m */; };
 		F6A4560819765BEF00EEF2C6 /* SLBookExchangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A4560719765BEF00EEF2C6 /* SLBookExchangeView.m */; };
-		F6A456121976676B00EEF2C6 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F6A4560A1976676B00EEF2C6 /* MJRefresh.bundle */; };
-		F6A456131976676B00EEF2C6 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A4560D1976676B00EEF2C6 /* MJRefreshBaseView.m */; };
-		F6A456141976676B00EEF2C6 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A4560F1976676B00EEF2C6 /* MJRefreshFooterView.m */; };
-		F6A456151976676B00EEF2C6 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A456111976676B00EEF2C6 /* MJRefreshHeaderView.m */; };
 		F6A456191976678100EEF2C6 /* ArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A456181976678100EEF2C6 /* ArrayDataSource.m */; };
 		F6A456221977602D00EEF2C6 /* SLBookExchangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A456211977602D00EEF2C6 /* SLBookExchangeCell.m */; };
+		F6A456471977A20700EEF2C6 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F6A4563F1977A20700EEF2C6 /* MJRefresh.bundle */; };
+		F6A456481977A20700EEF2C6 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A456421977A20700EEF2C6 /* MJRefreshBaseView.m */; };
+		F6A456491977A20700EEF2C6 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A456441977A20700EEF2C6 /* MJRefreshFooterView.m */; };
+		F6A4564A1977A20700EEF2C6 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A456461977A20700EEF2C6 /* MJRefreshHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,18 +297,18 @@
 		A9C5E582197575600096EBBF /* SLBookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBookDetailViewController.m; sourceTree = "<group>"; };
 		F6A4560619765BEF00EEF2C6 /* SLBookExchangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBookExchangeView.h; sourceTree = "<group>"; };
 		F6A4560719765BEF00EEF2C6 /* SLBookExchangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBookExchangeView.m; sourceTree = "<group>"; };
-		F6A4560A1976676B00EEF2C6 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
-		F6A4560B1976676B00EEF2C6 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
-		F6A4560C1976676B00EEF2C6 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
-		F6A4560D1976676B00EEF2C6 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
-		F6A4560E1976676B00EEF2C6 /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
-		F6A4560F1976676B00EEF2C6 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
-		F6A456101976676B00EEF2C6 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
-		F6A456111976676B00EEF2C6 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
 		F6A456171976678100EEF2C6 /* ArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayDataSource.h; sourceTree = "<group>"; };
 		F6A456181976678100EEF2C6 /* ArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayDataSource.m; sourceTree = "<group>"; };
 		F6A456201977602D00EEF2C6 /* SLBookExchangeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBookExchangeCell.h; sourceTree = "<group>"; };
 		F6A456211977602D00EEF2C6 /* SLBookExchangeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBookExchangeCell.m; sourceTree = "<group>"; };
+		F6A4563F1977A20700EEF2C6 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		F6A456401977A20700EEF2C6 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		F6A456411977A20700EEF2C6 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		F6A456421977A20700EEF2C6 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		F6A456431977A20700EEF2C6 /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		F6A456441977A20700EEF2C6 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		F6A456451977A20700EEF2C6 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		F6A456461977A20700EEF2C6 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,8 +338,8 @@
 		18DC1BC619711F2D008EEC5C /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				F6A4563E1977A20700EEF2C6 /* MJRefresh */,
 				F6A456161976678100EEF2C6 /* ArrayDataSource */,
-				F6A456091976676B00EEF2C6 /* MJRefresh */,
 				18DC1BC719711F2D008EEC5C /* MKNetworkKit */,
 			);
 			path = ThirdParty;
@@ -640,21 +640,6 @@
 			path = res;
 			sourceTree = "<group>";
 		};
-		F6A456091976676B00EEF2C6 /* MJRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				F6A4560A1976676B00EEF2C6 /* MJRefresh.bundle */,
-				F6A4560B1976676B00EEF2C6 /* MJRefresh.h */,
-				F6A4560C1976676B00EEF2C6 /* MJRefreshBaseView.h */,
-				F6A4560D1976676B00EEF2C6 /* MJRefreshBaseView.m */,
-				F6A4560E1976676B00EEF2C6 /* MJRefreshFooterView.h */,
-				F6A4560F1976676B00EEF2C6 /* MJRefreshFooterView.m */,
-				F6A456101976676B00EEF2C6 /* MJRefreshHeaderView.h */,
-				F6A456111976676B00EEF2C6 /* MJRefreshHeaderView.m */,
-			);
-			path = MJRefresh;
-			sourceTree = "<group>";
-		};
 		F6A456161976678100EEF2C6 /* ArrayDataSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +656,21 @@
 				F6A456211977602D00EEF2C6 /* SLBookExchangeCell.m */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		F6A4563E1977A20700EEF2C6 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				F6A4563F1977A20700EEF2C6 /* MJRefresh.bundle */,
+				F6A456401977A20700EEF2C6 /* MJRefresh.h */,
+				F6A456411977A20700EEF2C6 /* MJRefreshBaseView.h */,
+				F6A456421977A20700EEF2C6 /* MJRefreshBaseView.m */,
+				F6A456431977A20700EEF2C6 /* MJRefreshFooterView.h */,
+				F6A456441977A20700EEF2C6 /* MJRefreshFooterView.m */,
+				F6A456451977A20700EEF2C6 /* MJRefreshHeaderView.h */,
+				F6A456461977A20700EEF2C6 /* MJRefreshHeaderView.m */,
+			);
+			path = MJRefresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -777,7 +777,7 @@
 				8B17BC591971396400F8B6A9 /* more_unselected@2x.png in Resources */,
 				8B17BCAA19713B2C00F8B6A9 /* tabbar2.png in Resources */,
 				8B17BCAF19713B2C00F8B6A9 /* text_input.png in Resources */,
-				F6A456121976676B00EEF2C6 /* MJRefresh.bundle in Resources */,
+				F6A456471977A20700EEF2C6 /* MJRefresh.bundle in Resources */,
 				8B17BC481971396400F8B6A9 /* tabbar_bookcircle.png in Resources */,
 				8B17BC4F1971396400F8B6A9 /* tabbar_personcenter.png in Resources */,
 				8B17BC9419713B2C00F8B6A9 /* background_iphone4s.png in Resources */,
@@ -849,14 +849,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6A456141976676B00EEF2C6 /* MJRefreshFooterView.m in Sources */,
 				2C1B313B196BC4F40076E2DF /* main.m in Sources */,
 				18DC1BF81971209A008EEC5C /* iLIBFloatBookItem.m in Sources */,
 				18DC1BE419711F2D008EEC5C /* NSDictionary+RequestEncoding.m in Sources */,
 				F6A456191976678100EEF2C6 /* ArrayDataSource.m in Sources */,
 				18DC1BE319711F2D008EEC5C /* NSDate+RFC1123.m in Sources */,
 				18DC1BE719711F2D008EEC5C /* UIImage+EllipseImage.m in Sources */,
+				F6A456481977A20700EEF2C6 /* MJRefreshBaseView.m in Sources */,
 				18DC1BE519711F2D008EEC5C /* NSString+MKNetworkKitAdditions.m in Sources */,
+				F6A456491977A20700EEF2C6 /* MJRefreshFooterView.m in Sources */,
 				18DC1BFB19712297008EEC5C /* iLIBEngine.m in Sources */,
 				18DC1BEA19711F2D008EEC5C /* MKNetworkOperation.m in Sources */,
 				2CD4F03D1971054D0077A967 /* SLMainViewController.m in Sources */,
@@ -864,18 +865,17 @@
 				2CB91CC0196C036F00BD961C /* SLLogInViewController.m in Sources */,
 				18DC1BF51971209A008EEC5C /* iLIBBookCircleItem.m in Sources */,
 				A9C5E580197574880096EBBF /* SLSearchResultViewController.m in Sources */,
+				F6A4564A1977A20700EEF2C6 /* MJRefreshHeaderView.m in Sources */,
 				2CD4F03A197105400077A967 /* SLMyInfoViewController.m in Sources */,
 				F6A456221977602D00EEF2C6 /* SLBookExchangeCell.m in Sources */,
 				18DC1BF71971209A008EEC5C /* iLIBComment.m in Sources */,
 				18DC1BEB19711F2D008EEC5C /* Reachability.m in Sources */,
 				18DC1BE919711F2D008EEC5C /* MKNetworkEngine.m in Sources */,
 				2CD4F034197104F10077A967 /* SLMyLibraryViewController.m in Sources */,
-				F6A456131976676B00EEF2C6 /* MJRefreshBaseView.m in Sources */,
 				A9C5E583197575600096EBBF /* SLBookDetailViewController.m in Sources */,
 				2CD4F04319710E230077A967 /* SLSearchBookViewController.m in Sources */,
 				18DC1BE119711F2D008EEC5C /* NSAlert+MKNetworkKitAdditions.m in Sources */,
 				F6A4560819765BEF00EEF2C6 /* SLBookExchangeView.m in Sources */,
-				F6A456151976676B00EEF2C6 /* MJRefreshHeaderView.m in Sources */,
 				18DC1BE619711F2D008EEC5C /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
 				2CB91CC6196C04C600BD961C /* SLPersistencyAPI.m in Sources */,
 				18DC1BE819711F2D008EEC5C /* UIImageView+MKNetworkKitAdditions.m in Sources */,

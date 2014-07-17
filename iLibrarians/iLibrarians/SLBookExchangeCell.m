@@ -61,8 +61,6 @@
 
 - (void)configureForCell:(iLIBFloatBookItem *)bookItem
 {
-    NSLog(@"%@", bookItem.userName);
-    
     if (bookItem.type == 0) {
         _usernameLabel.textColor = [UIColor colorWithRed:136/255.0 green:216/255.0 blue:231/255.0 alpha:1];
         _backGroundView.backgroundColor = [UIColor colorWithRed:136/255.0 green:216/255.0 blue:231/255.0 alpha:1];

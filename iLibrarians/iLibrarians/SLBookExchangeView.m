@@ -13,6 +13,7 @@
 #import "ArrayDataSource.h"
 #import "iLIBEngine.h"
 #import "SLBookExchangeCell.h"
+#import "SLMyInfoViewController.h"
 
 #define NAVIGATONBAR_HEIGHT 32
 #define SEGMENT_HEIGHT 29
@@ -25,6 +26,7 @@
 
 @interface SLBookExchangeView ()
 {
+    MJRefreshHeaderView *_header;
     MJRefreshFooterView *_footer;
 }
 
@@ -50,6 +52,8 @@
         NSArray *segmentItems = @[@"闲置", @"求借"];
         self.segmentedControl = [[UISegmentedControl alloc] initWithItems:segmentItems];
         [self.segmentedControl setFrame:CGRectMake(0., 0., width, SEGMENT_HEIGHT)];
+        self.segmentedControl.selectedSegmentIndex = 0;
+        [self.segmentedControl addTarget:self action:@selector(mySegmentValueChanged:) forControlEvents:UIControlEventValueChanged];
         [self addSubview:self.segmentedControl];
         
         
@@ -58,7 +62,7 @@
         
         self.publishButton = [[UIButton alloc] initWithFrame:CGRectMake((width - PUBLISH_BUTTON_WIDTH) / 2, height - PUBLISH_BUTTON_HEIGHT - 69., PUBLISH_BUTTON_WIDTH,PUBLISH_BUTTON_HEIGHT)];
         [self.publishButton setTitle:@"发布消息" forState:UIControlStateNormal];
-        [self.publishButton setBackgroundColor:[UIColor blueColor]];
+        [self.publishButton setBackgroundColor:segmentedControlColor];
         
         
         [self addSubview:self.publishButton];
@@ -66,27 +70,18 @@
     }
     
     self.segmentedControl.tintColor = segmentedControlColor;
+    _header = [[MJRefreshHeaderView alloc] init];
+    _header.delegate = (id)self;
+    _header.scrollView = self.exchangeTableView;
     _footer = [[MJRefreshFooterView alloc] init];
     _footer.delegate = (id)self;
     _footer.scrollView = self.exchangeTableView;
     _pageCount = 1;
     
-    
+    self.exchangeTableView.delegate = self;
+    self.exchangeTableView.dataSource = self;
     self.iLibEngine = [SLAppDelegate sharedDelegate].iLibEngine;
-    if (! self.iLibEngine) {
-        NSLog(@"nooo");
-    }
-    [self.iLibEngine getFloatBooksWithType:@"0" page:_pageCount onSuccess:^(NSArray *bookArray) {
-        self.booksArray = (id)bookArray;
-        NSLog(@"%lu", (unsigned long)self.booksArray.count);
-        //[self setupTableView];
-        self.exchangeTableView.delegate = self;
-        self.exchangeTableView.dataSource = self;
-        [self.exchangeTableView reloadData];
-    } onError:^(NSError *engineError) {
-        [UIAlertView showWithText:@"获取漂流图书数据失败，请重试"];
-    }];
-    
+    [_header beginRefreshing];
     return self;
 }
 
@@ -113,7 +108,7 @@
     if (self.booksArray) {
         return  [self.booksArray count];
     }
-    return 100;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -137,8 +132,54 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    SLMyInfoViewController *myInfoViewController = [[SLMyInfoViewController alloc] init];
+    [self.controller.navigationController pushViewController:myInfoViewController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - Refresh View delegate
+
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    if ([refreshView isMemberOfClass:[MJRefreshFooterView class]]) {
+        NSLog(@"加载更多");
+        _pageCount ++;
+        NSLog(@"pageCount:%d",_pageCount);
+        [self.iLibEngine getFloatBooksWithType:[NSString stringWithFormat:@"%d",self.segmentedControl.selectedSegmentIndex] page:_pageCount onSuccess:^(NSArray *bookArray) {
+            NSLog(@"count:%d",bookArray.count);
+            [_booksArray addObjectsFromArray:bookArray];
+            [_footer endRefreshing];
+            [self.exchangeTableView reloadData];
+        } onError:^(NSError *engineError) {
+            [_footer endRefreshing];
+            [UIAlertView showWithTitle:@"获取漂流图书数据错误" message:@"请检查你的网络设置"];
+        }];
+    }
+    else if ([refreshView isMemberOfClass:[MJRefreshHeaderView class]])
+    {
+        [self.iLibEngine getFloatBooksWithType:[NSString stringWithFormat:@"%d",self.segmentedControl.selectedSegmentIndex] page:_pageCount onSuccess:^(NSArray *bookArray) {
+            self.booksArray = (id)bookArray;
+            [_header endRefreshing];
+            [self.exchangeTableView reloadData];
+        } onError:^(NSError *engineError) {
+            [_header endRefreshing];
+            [UIAlertView showWithText:@"获取漂流图书数据失败，请重试"];
+        }];
+    }
+}
+
+
+#pragma mark - Segment Delegate
+
+- (void)mySegmentValueChanged:(id)sender {
+    _pageCount = 1;
+    [_iLibEngine getFloatBooksWithType:[NSString stringWithFormat:@"%d",self.segmentedControl.selectedSegmentIndex] page:_pageCount onSuccess:^(NSArray *bookArray) {
+        _booksArray = (id)bookArray;
+        _booksDataSource.items = self.booksArray;
+        [self.exchangeTableView reloadData];
+    } onError:^(NSError *engineError) {
+        [UIAlertView showWithText:@"获取漂流图书数据失败，请重试"];
+    }];
+}
 
 @end
