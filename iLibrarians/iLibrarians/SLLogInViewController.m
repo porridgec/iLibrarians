@@ -1,7 +1,6 @@
 #import "SLAppDelegate.h"
 #import "SLLoginViewController.h"
 #import "SLMyLibraryViewController.h"
-#import "SLSearchBookViewController.h"
 #import "SLBooksExchangeViewController.h"
 #import "SLMyInfoViewController.h"
 #import "SLMainViewController.h"
@@ -38,6 +37,7 @@
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     self.usernameTextField.text               = [userDefault objectForKey:@"username"];
     self.passwordTextField.text               = [userDefault objectForKey:@"password"];
+    
 }
 
 
