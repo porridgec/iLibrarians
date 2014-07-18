@@ -15,6 +15,7 @@
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UIView *textFieldBackgroundView;
 @property (nonatomic,strong) UITextField *textField;
+@property (nonatomic,strong) UIButton *publishButton;
 @property (nonatomic,strong) iLIBFloatBookItem *book;
 
 - (void)publishComment:(id)sender;

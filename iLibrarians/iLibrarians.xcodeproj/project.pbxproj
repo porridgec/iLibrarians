@@ -132,6 +132,8 @@
 		F6A456481977A20700EEF2C6 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A456421977A20700EEF2C6 /* MJRefreshBaseView.m */; };
 		F6A456491977A20700EEF2C6 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A456441977A20700EEF2C6 /* MJRefreshFooterView.m */; };
 		F6A4564A1977A20700EEF2C6 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A456461977A20700EEF2C6 /* MJRefreshHeaderView.m */; };
+		F6A456511978ACF100EEF2C6 /* SLBookExchangeDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A456501978ACF100EEF2C6 /* SLBookExchangeDetailCell.m */; };
+		F6A456541978B72E00EEF2C6 /* SLBookExchangeCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A456531978B72E00EEF2C6 /* SLBookExchangeCommentCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +311,10 @@
 		F6A456441977A20700EEF2C6 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
 		F6A456451977A20700EEF2C6 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
 		F6A456461977A20700EEF2C6 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		F6A4564F1978ACF100EEF2C6 /* SLBookExchangeDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBookExchangeDetailCell.h; sourceTree = "<group>"; };
+		F6A456501978ACF100EEF2C6 /* SLBookExchangeDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBookExchangeDetailCell.m; sourceTree = "<group>"; };
+		F6A456521978B72E00EEF2C6 /* SLBookExchangeCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBookExchangeCommentCell.h; sourceTree = "<group>"; };
+		F6A456531978B72E00EEF2C6 /* SLBookExchangeCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBookExchangeCommentCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -654,6 +660,10 @@
 			children = (
 				F6A456201977602D00EEF2C6 /* SLBookExchangeCell.h */,
 				F6A456211977602D00EEF2C6 /* SLBookExchangeCell.m */,
+				F6A4564F1978ACF100EEF2C6 /* SLBookExchangeDetailCell.h */,
+				F6A456501978ACF100EEF2C6 /* SLBookExchangeDetailCell.m */,
+				F6A456521978B72E00EEF2C6 /* SLBookExchangeCommentCell.h */,
+				F6A456531978B72E00EEF2C6 /* SLBookExchangeCommentCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -855,6 +865,7 @@
 				F6A456191976678100EEF2C6 /* ArrayDataSource.m in Sources */,
 				18DC1BE319711F2D008EEC5C /* NSDate+RFC1123.m in Sources */,
 				18DC1BE719711F2D008EEC5C /* UIImage+EllipseImage.m in Sources */,
+				F6A456541978B72E00EEF2C6 /* SLBookExchangeCommentCell.m in Sources */,
 				F6A456481977A20700EEF2C6 /* MJRefreshBaseView.m in Sources */,
 				18DC1BE519711F2D008EEC5C /* NSString+MKNetworkKitAdditions.m in Sources */,
 				F6A456491977A20700EEF2C6 /* MJRefreshFooterView.m in Sources */,
@@ -870,6 +881,7 @@
 				F6A456221977602D00EEF2C6 /* SLBookExchangeCell.m in Sources */,
 				18DC1BF71971209A008EEC5C /* iLIBComment.m in Sources */,
 				18DC1BEB19711F2D008EEC5C /* Reachability.m in Sources */,
+				F6A456511978ACF100EEF2C6 /* SLBookExchangeDetailCell.m in Sources */,
 				18DC1BE919711F2D008EEC5C /* MKNetworkEngine.m in Sources */,
 				2CD4F034197104F10077A967 /* SLMyLibraryViewController.m in Sources */,
 				A9C5E583197575600096EBBF /* SLBookDetailViewController.m in Sources */,

@@ -120,6 +120,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SLBookDetailViewController *detailViewController = [[SLBookDetailViewController alloc] init];
+    [detailViewController setBook:[_booksArray objectAtIndex:indexPath.row]];
     [self.controller.navigationController pushViewController:detailViewController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
