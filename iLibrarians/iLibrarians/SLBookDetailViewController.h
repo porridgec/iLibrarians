@@ -10,7 +10,7 @@
 
 @class iLIBFloatBookItem;
 
-@interface SLBookDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface SLBookDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UIView *textFieldBackgroundView;

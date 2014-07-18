@@ -38,7 +38,6 @@
 		2CB91CC0196C036F00BD961C /* SLLogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB91CBF196C036F00BD961C /* SLLogInViewController.m */; };
 		2CB91CC6196C04C600BD961C /* SLPersistencyAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB91CC5196C04C600BD961C /* SLPersistencyAPI.m */; };
 		2CD4F034197104F10077A967 /* SLMyLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F033197104F10077A967 /* SLMyLibraryViewController.m */; };
-		2CD4F0371971050B0077A967 /* SLBooksExchangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F0361971050B0077A967 /* SLBooksExchangeViewController.m */; };
 		2CD4F03A197105400077A967 /* SLMyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F039197105400077A967 /* SLMyInfoViewController.m */; };
 		2CD4F03D1971054D0077A967 /* SLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F03C1971054D0077A967 /* SLMainViewController.m */; };
 		2CD4F04319710E230077A967 /* SLSearchBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F04219710E230077A967 /* SLSearchBookViewController.m */; };
@@ -202,8 +201,6 @@
 		2CB91CC5196C04C600BD961C /* SLPersistencyAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLPersistencyAPI.m; sourceTree = "<group>"; };
 		2CD4F032197104F10077A967 /* SLMyLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMyLibraryViewController.h; sourceTree = "<group>"; };
 		2CD4F033197104F10077A967 /* SLMyLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMyLibraryViewController.m; sourceTree = "<group>"; };
-		2CD4F0351971050B0077A967 /* SLBooksExchangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBooksExchangeViewController.h; sourceTree = "<group>"; };
-		2CD4F0361971050B0077A967 /* SLBooksExchangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBooksExchangeViewController.m; sourceTree = "<group>"; };
 		2CD4F038197105400077A967 /* SLMyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMyInfoViewController.h; sourceTree = "<group>"; };
 		2CD4F039197105400077A967 /* SLMyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLMyInfoViewController.m; sourceTree = "<group>"; };
 		2CD4F03B1971054D0077A967 /* SLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLMainViewController.h; sourceTree = "<group>"; };
@@ -517,8 +514,6 @@
 				A9C5E57F197574880096EBBF /* SLSearchResultViewController.m */,
 				A9C5E581197575600096EBBF /* SLBookDetailViewController.h */,
 				A9C5E582197575600096EBBF /* SLBookDetailViewController.m */,
-				2CD4F0351971050B0077A967 /* SLBooksExchangeViewController.h */,
-				2CD4F0361971050B0077A967 /* SLBooksExchangeViewController.m */,
 				F6A4560619765BEF00EEF2C6 /* SLBookExchangeView.h */,
 				F6A4560719765BEF00EEF2C6 /* SLBookExchangeView.m */,
 				2CD4F038197105400077A967 /* SLMyInfoViewController.h */,
@@ -892,7 +887,6 @@
 				2CB91CC6196C04C600BD961C /* SLPersistencyAPI.m in Sources */,
 				18DC1BE819711F2D008EEC5C /* UIImageView+MKNetworkKitAdditions.m in Sources */,
 				2C1B313F196BC4F40076E2DF /* SLAppDelegate.m in Sources */,
-				2CD4F0371971050B0077A967 /* SLBooksExchangeViewController.m in Sources */,
 				18DC1BF61971209A008EEC5C /* iLIBBookItem.m in Sources */,
 				18DC1BE219711F2D008EEC5C /* NSData+MKBase64.m in Sources */,
 				2CEF08871971802A002DDEDC /* SLPublishViewController.m in Sources */,
