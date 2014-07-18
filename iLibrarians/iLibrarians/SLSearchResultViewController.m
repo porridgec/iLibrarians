@@ -7,7 +7,10 @@
 //
 
 #import "SLSearchResultViewController.h"
+#import "SLBookDetailViewController.h"
+#import "SLBookItemCell.h"
 #import "UIImageView+WebCache.h"
+#import "MBProgressHUD.h"
 
 
 @implementation SLSearchResultViewController
@@ -30,10 +33,13 @@
     [self setTitle:@"检索结果"];
     //self.view.backgroundColor = [UIColor redColor];
     
-    self.resultTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.frame.size.height )];
-    self.resultTableView.backgroundColor = [UIColor redColor];
-    self.resultTableView.dataSource = self;
-    self.resultTableView.delegate = self;
+    self.resultTableView                 = [[UITableView alloc] initWithFrame:CGRectMake(0,
+                                                                                         0,
+                                                                                         320,
+                                                                                         self.view.frame.size.height )];
+    self.resultTableView.backgroundColor = [UIColor whiteColor];
+    self.resultTableView.dataSource      = self;
+    self.resultTableView.delegate        = self;
     [self.view addSubview:_resultTableView];
     
     _bookCount            = 0;
@@ -43,6 +49,13 @@
     _didFinishedSearching = NO;
     _didFinishLoadingMore = YES;
     self.iLibEngine       = [[iLIBEngine alloc]initWithHostName:kHostUrl customHeaderFields:nil];
+    
+    MBProgressHUD *hud    = [[MBProgressHUD alloc]initWithView:self.view];
+    hud.dimBackground     = YES;
+    hud.labelText         = @"努力查询中...";
+    [self.view addSubview:hud];
+    [hud show:YES];
+
     
     [self.iLibEngine getSetNumberWithBookName:self.searchString
                                  onCompletion:^(NSString *bookNumber,int bookCount){
@@ -65,10 +78,10 @@
                                                                                   self.cellCount            = [self.searchedBooks count];
                                                                                   self.didFinishedSearching = YES;
                                                                                   [self.resultTableView reloadData];
-                                                                                  
+                                                                                  [hud removeFromSuperview];
                                                                               }onError:^(NSError *error){
                                                                                   //
-                                                      
+                                                                                  [hud removeFromSuperview];
                                                                                   UIAlertView *alert = [[UIAlertView alloc ]initWithTitle:@"出错了" message:@"网络不太给力呀~" delegate:self cancelButtonTitle:@"寡人知道了" otherButtonTitles:nil];
                                                                                   [alert show];
                                                                               }];
@@ -78,11 +91,13 @@
                                          [self.resultTableView reloadData];
                                          UIAlertView *alert        = [[UIAlertView alloc ]initWithTitle:@"出错了" message:@"找不到这样的书呀~" delegate:self cancelButtonTitle:@"寡人知道了" otherButtonTitles:nil];
                                          [alert show];
+                                         [hud removeFromSuperview];
                                          
                                      }
-                                         //NSLog(@"################\nbookcount %d\ncellcount %d\napgeindex %d\npagecount %d\n",_bookCount,_cellCount,_pageIndex,_pageCount);
+
                                  }onError:^(NSError *error){
                                      //
+                                     [hud removeFromSuperview];
                                      UIAlertView *alert = [[UIAlertView alloc ]initWithTitle:@"出错了" message:@"网络不太给力呀~" delegate:self cancelButtonTitle:@"寡人知道了" otherButtonTitles:nil];
                                      [alert show];
                                  }];
@@ -96,17 +111,6 @@
 }
 
 #pragma mark - datasource
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *CellIdentifier = @"BookItemCell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//    }
-//    
-//    cell.textLabel.text = [NSString stringWithFormat:@"%d",indexPath.row];
-//    return cell;
-//}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(_didFinishedSearching == YES){
@@ -118,56 +122,55 @@
                 [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
                 [cell.textLabel setBackgroundColor:[UIColor clearColor]];
             }
+            else{
+                while ([cell.contentView.subviews lastObject] != nil) {
+                    [(UIView*)[cell.contentView.subviews lastObject] removeFromSuperview];
+                }
+            }
             [cell.textLabel setText:@"找不到这样的书呀~"];
             cell.textLabel.textAlignment = NSTextAlignmentCenter;
             return cell;
         }
         
-        static NSString *CellIdentifier = @"iLIBBookItemCell";
         
-////        if(indexPath.row < _cellCount)
-////        {
-////            iLIBBookItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-////            if(cell==nil)
-////            {
-////                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:nil options:nil];
-////                cell         = nib[0];
-////                [cell.textLabel setBackgroundColor:[UIColor clearColor]];
-////                
-////                
-////            }
-////            //NSLog(@"%ld",(long)indexPath.row);
-////            cell.bookTitleLabel.text  = [[_searchedBooks objectAtIndex:indexPath.row] objectForKey:@"title"];
-////            cell.bookAuthorLabel.text = [[_searchedBooks objectAtIndex:indexPath.row] objectForKey:@"author"];
-////            
-////            NSURL *coverUrl = [NSURL URLWithString:[[_searchedBooks objectAtIndex:indexPath.row] objectForKey:@"cover"]];
-////            [cell.bookCoverImage setImageWithURL:coverUrl];
-////            return cell;
-////        }
+
+        
+        static NSString *CellIdentifier = @"SLBookItemCell";
+        
         if(indexPath.row < _cellCount)
         {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            SLBookItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             if (!cell) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+                cell = [[SLBookItemCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
                 [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
                 [cell.textLabel setBackgroundColor:[UIColor clearColor]];
+            }else{
+                while ([cell.contentView.subviews lastObject] != nil) {
+                    [(UIView*)[cell.contentView.subviews lastObject] removeFromSuperview];
+                }
             }
-
             //NSLog(@"%ld",(long)indexPath.row);
-            cell.textLabel.text  = [[_searchedBooks objectAtIndex:indexPath.row] objectForKey:@"title"];
+            cell.bookTitleLabel.text  = [[_searchedBooks objectAtIndex:indexPath.row] objectForKey:@"title"];
+            cell.bookAuthorLabel.text = [[_searchedBooks objectAtIndex:indexPath.row] objectForKey:@"author"];
             
             NSURL *coverUrl = [NSURL URLWithString:[[_searchedBooks objectAtIndex:indexPath.row] objectForKey:@"cover"]];
-            //[cell.bookCoverImage setImageWithURL:coverUrl];
+            [cell.bookCoverImage setImageWithURL:coverUrl];
             return cell;
         }
         else{
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+            cell = nil;
             if (!cell) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
                 
-                [cell.textLabel setBackgroundColor:[UIColor clearColor]];
+                [cell.textLabel setBackgroundColor:[UIColor whiteColor]];
+            }else{
+                while ([cell.contentView.subviews lastObject] != nil) {
+                    [(UIView*)[cell.contentView.subviews lastObject] removeFromSuperview];
+                }
             }
             
+            cell.backgroundColor = [UIColor whiteColor];
             cell.textLabel.text          = @"load more";
             cell.textLabel.textAlignment = NSTextAlignmentCenter;
             return cell;
@@ -179,6 +182,10 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
             
             [cell.textLabel setBackgroundColor:[UIColor clearColor]];
+        }else{
+            while ([cell.contentView.subviews lastObject] != nil) {
+                [(UIView*)[cell.contentView.subviews lastObject] removeFromSuperview];
+            }
         }
         
         cell.textLabel.text          = @"";
@@ -210,58 +217,59 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    return 67;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    if(_bookCount != 0 && indexPath.row != self.cellCount)
-//    {
-//        iLIBBookItemCell *cell                           = (iLIBBookItemCell*)[tableView cellForRowAtIndexPath:indexPath];
-//        iLIBSearchResultDetailViewController *detailView = [[iLIBSearchResultDetailViewController alloc]initWithNibName:@"iLIBSearchResultDetailViewController" bundle:nil];
-//        
-//        detailView.title                                 = cell.bookTitleLabel.text;
-//        detailView.bookTitle                             = cell.bookTitleLabel.text;
-//        detailView.bookIndex                             = [NSString stringWithFormat:@"%@",[[_searchedBooks objectAtIndex:indexPath.row] objectForKey:@"index"]] ;
-//        detailView.author                                = cell.bookAuthorLabel.text;
-//        detailView.publish                               = [NSString stringWithFormat:@"%@",[[_searchedBooks objectAtIndex:indexPath.row] objectForKey:@"press"]] ;
-//        detailView.bookCover                             = cell.bookCoverImage.image;
-//        detailView.docNumber                             = [[self.searchedBooks objectAtIndex:indexPath.row] objectForKey:@"doc_number"];
-//        [self.navigationController pushViewController:detailView animated:YES];
-//        
-//    }
+
+    if(_bookCount != 0 && indexPath.row != self.cellCount)
+    {
+        SLBookItemCell *cell                           = (SLBookItemCell*)[tableView cellForRowAtIndexPath:indexPath];
+        SLBookDetailViewController *detailViewController = [[SLBookDetailViewController alloc]init];
+        
+        detailViewController.title                                 = cell.bookTitleLabel.text;
+        detailViewController.bookTitle                             = cell.bookTitleLabel.text;
+        detailViewController.bookIndex                             = [NSString stringWithFormat:@"%@",[[_searchedBooks objectAtIndex:indexPath.row] objectForKey:@"index"]] ;
+        detailViewController.author                                = cell.bookAuthorLabel.text;
+        detailViewController.publish                               = [NSString stringWithFormat:@"%@",[[_searchedBooks objectAtIndex:indexPath.row] objectForKey:@"press"]] ;
+        detailViewController.bookCover                             = cell.bookCoverImage.image;
+        detailViewController.docNumber                             = [[self.searchedBooks objectAtIndex:indexPath.row] objectForKey:@"doc_number"];
+        [self.navigationController pushViewController:detailViewController animated:YES];
+    }
     if(indexPath.row == self.cellCount && self.didFinishLoadingMore == YES){
         self.pageIndex            += 1;
         self.didFinishLoadingMore = NO;
         [self loadMoreBooks];
     }
     
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
 }
 
 #pragma mark - footer for load more books
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
-{
-    UIView* footerView                = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    
-    footerView.autoresizesSubviews    = YES;
-    
-    footerView.autoresizingMask       = UIViewAutoresizingFlexibleWidth;
-    
-    footerView.userInteractionEnabled = YES;
-    
-    footerView.hidden                 = YES;
-    
-    footerView.multipleTouchEnabled   = NO;
-    
-    footerView.opaque                 = NO;
-    
-    footerView.contentMode            = UIViewContentModeScaleToFill;
-    
-    footerView.backgroundColor        = [UIColor whiteColor];
-    
-    return footerView;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+//{
+//    UIView* footerView                = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+//    
+//    footerView.autoresizesSubviews    = YES;
+//    
+//    footerView.autoresizingMask       = UIViewAutoresizingFlexibleWidth;
+//    
+//    footerView.userInteractionEnabled = YES;
+//    
+//    footerView.hidden                 = YES;
+//    
+//    footerView.multipleTouchEnabled   = NO;
+//    
+//    footerView.opaque                 = NO;
+//    
+//    footerView.contentMode            = UIViewContentModeScaleToFill;
+//    
+//    footerView.backgroundColor        = [UIColor whiteColor];
+//    
+//    return footerView;
+//}
 
 - (void)loadMoreBooks
 {

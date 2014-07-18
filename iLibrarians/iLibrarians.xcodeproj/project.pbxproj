@@ -140,7 +140,7 @@
 		A904C5D21977C5D500DD0B48 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = A904C5BC1977C5D500DD0B48 /* UIImage+MultiFormat.m */; };
 		A904C5D31977C5D500DD0B48 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = A904C5BE1977C5D500DD0B48 /* UIImage+WebP.m */; };
 		A904C5D41977C5D500DD0B48 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A904C5C01977C5D500DD0B48 /* UIImageView+WebCache.m */; };
-		A904C5D61977C6BB00DD0B48 /* MJRefresh in Resources */ = {isa = PBXBuildFile; fileRef = A904C5D51977C6BB00DD0B48 /* MJRefresh */; };
+		A904C5DF1977ED3600DD0B48 /* SLBookItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A904C5DE1977ED3600DD0B48 /* SLBookItemCell.m */; };
 		A9B653091976D5790040E0FD /* SLSearchBookView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B653081976D5790040E0FD /* SLSearchBookView.m */; };
 		A9C5E580197574880096EBBF /* SLSearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C5E57F197574880096EBBF /* SLSearchResultViewController.m */; };
 		A9C5E583197575600096EBBF /* SLBookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C5E582197575600096EBBF /* SLBookDetailViewController.m */; };
@@ -338,7 +338,8 @@
 		A904C5BE1977C5D500DD0B48 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		A904C5BF1977C5D500DD0B48 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		A904C5C01977C5D500DD0B48 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
-		A904C5D51977C6BB00DD0B48 /* MJRefresh */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MJRefresh; sourceTree = "<group>"; };
+		A904C5DD1977ED3600DD0B48 /* SLBookItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLBookItemCell.h; sourceTree = "<group>"; };
+		A904C5DE1977ED3600DD0B48 /* SLBookItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLBookItemCell.m; sourceTree = "<group>"; };
 		A9B653071976D5790040E0FD /* SLSearchBookView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSearchBookView.h; sourceTree = "<group>"; };
 		A9B653081976D5790040E0FD /* SLSearchBookView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSearchBookView.m; sourceTree = "<group>"; };
 		A9C5E57E197574880096EBBF /* SLSearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSearchResultViewController.h; sourceTree = "<group>"; };
@@ -374,7 +375,6 @@
 		18DC1BC619711F2D008EEC5C /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				A904C5D51977C6BB00DD0B48 /* MJRefresh */,
 				A904C59A1977C5D400DD0B48 /* MJRefresh */,
 				A904C5A31977C5D400DD0B48 /* SDWebImage */,
 				18DC1BC719711F2D008EEC5C /* MKNetworkKit */,
@@ -553,6 +553,7 @@
 				2CD4F039197105400077A967 /* SLMyInfoViewController.m */,
 				2CEF08851971802A002DDEDC /* SLPublishViewController.h */,
 				2CEF08861971802A002DDEDC /* SLPublishViewController.m */,
+				A94F06011978A73D0027E862 /* cells */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -725,6 +726,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		A94F06011978A73D0027E862 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				A904C5DD1977ED3600DD0B48 /* SLBookItemCell.h */,
+				A904C5DE1977ED3600DD0B48 /* SLBookItemCell.m */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -869,7 +879,6 @@
 				8B17BC5E1971396400F8B6A9 /* search_selected.png in Resources */,
 				8B17BCA919713B2C00F8B6A9 /* status_bar_iphone5、4s.png in Resources */,
 				8B17BC4D1971396400F8B6A9 /* tabbar_mylib.png in Resources */,
-				A904C5D61977C6BB00DD0B48 /* MJRefresh in Resources */,
 				8B17BC0B19712EC600F8B6A9 /* SLLogInViewController.xib in Resources */,
 				8B17BC9F19713B2C00F8B6A9 /* item_bg_3.png in Resources */,
 				8B17BC5A1971396400F8B6A9 /* mylib_selected.png in Resources */,
@@ -946,6 +955,7 @@
 				A904C5C81977C5D500DD0B48 /* NSData+GIF.m in Sources */,
 				2CD4F0371971050B0077A967 /* SLBooksExchangeViewController.m in Sources */,
 				18DC1BF61971209A008EEC5C /* iLIBBookItem.m in Sources */,
+				A904C5DF1977ED3600DD0B48 /* SLBookItemCell.m in Sources */,
 				18DC1BE219711F2D008EEC5C /* NSData+MKBase64.m in Sources */,
 				2CEF08871971802A002DDEDC /* SLPublishViewController.m in Sources */,
 			);
