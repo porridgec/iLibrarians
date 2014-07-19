@@ -10,7 +10,6 @@
 #import "SLMyLibraryViewController.h"
 #import "SLSearchBookViewController.h"
 #import "SLMyInfoViewController.h"
-
 #import "SLBookExchangeView.h"
 
 #define NAVIGATION_BAR_HEIGHT 64
@@ -59,11 +58,11 @@
     SLSearchBookViewController *searchBookViewController = [[SLSearchBookViewController alloc] init];
     SLBookExchangeView *bookExchangeView = [[SLBookExchangeView alloc] initWithFrame:CGRectMake(0.+ width + width, 0., width, height)];
     bookExchangeView.controller = self;
-
     
     [myLibraryViewController.view setFrame:CGRectMake(0., 0., width, height)];
     [searchBookViewController.view setFrame:CGRectMake(0.+ width, 0., width, height)];
-
+    
+    
     [self.mainScrollView addSubview:myLibraryViewController.view];
     [self.mainScrollView addSubview:searchBookViewController.view];
     [self.mainScrollView addSubview:bookExchangeView];

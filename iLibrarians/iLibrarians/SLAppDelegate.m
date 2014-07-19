@@ -8,10 +8,9 @@
 
 #import "SLAppDelegate.h"
 #import "SLLogInViewController.h"
+#import "iLIBEngine.h"
 
 @implementation SLAppDelegate
-
-@synthesize iLibEngine = _iLibEngine;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,8 +22,8 @@
     [self.window setRootViewController:loginViewController];
     
     [self.window makeKeyAndVisible];
-    self.iLibEngine = [[iLIBEngine alloc] init];
 	
+    self.iLibEngine = [[iLIBEngine alloc] init];
     return YES;
 }
 
@@ -59,5 +58,4 @@
 {
     return (SLAppDelegate*)[UIApplication sharedApplication].delegate;
 }
-
 @end

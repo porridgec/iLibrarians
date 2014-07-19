@@ -99,7 +99,7 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)viewDidLoadr
 {
     [super viewDidLoad];
 }

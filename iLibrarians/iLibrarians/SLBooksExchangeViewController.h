@@ -1,5 +1,5 @@
 //
-//  SLMainViewController.h
+//  SLBooksExchangeViewController.h
 //  iLibrarians
 //
 //  Created by johnsonpuning on 14-7-12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLMainViewController : UIViewController
+@interface SLBooksExchangeViewController : UIViewController
 
 @end
