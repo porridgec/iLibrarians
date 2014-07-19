@@ -11,6 +11,8 @@
 
 #define contentFont [UIFont systemFontOfSize:13]
 
+#define contentColor [UIColor colorWithRed:0.4784 green:0.9255 blue:0.7098 alpha:1.0]
+
 @implementation SLBookExchangeCommentCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -27,7 +29,7 @@
         [self addSubview:_dotImageView];
         
         _userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 7, 142, 21)];
-        _userNameLabel.textColor = [UIColor greenColor];
+        _userNameLabel.textColor = contentColor;
         _userNameLabel.font = [UIFont systemFontOfSize:12];
         [self addSubview:_userNameLabel];
         
@@ -37,7 +39,7 @@
         [self addSubview:_dateLabel];
         
         _commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(26, 26, 232, 71)];
-        _commentLabel.textColor = [UIColor greenColor];
+        _commentLabel.textColor = contentColor;
         _commentLabel.font = [UIFont systemFontOfSize:12];
         [self addSubview:_commentLabel];
         

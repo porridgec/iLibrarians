@@ -46,16 +46,15 @@
         [self.view addSubview:self.tableView];
         
         self.textFieldBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-40, 320, 40)];
-        self.textFieldBackgroundView.backgroundColor = [UIColor blueColor];
+        self.textFieldBackgroundView.backgroundColor = textFieldBackgroundColor;
         [self.view addSubview:self.textFieldBackgroundView];
         
         self.textField = [[UITextField alloc] initWithFrame:CGRectMake(9, 3, 259, 30)];
-        self.textField.delegate = self;
         self.textField.placeholder = @"我也来说两句";
         [self.textField setBorderStyle:UITextBorderStyleRoundedRect];
-        [self.textField addTarget:self action:@selector(textFieldDidBeginEditing:) forControlEvents:UIControlEventEditingDidBegin];
 		self.textField.inputAccessoryView = [[UIView alloc]init];
 		self.textField.returnKeyType = UIReturnKeyDone;
+		self.textField.delegate = self;
         [self.textFieldBackgroundView addSubview:self.textField];
         
         self.publishButton = [[UIButton alloc] initWithFrame:CGRectMake(276, 2, 30, 30)];
@@ -181,7 +180,7 @@
 
 - (void)publishComment
 {
-    [self performSelector:@selector(textFieldDidEndEditing) withObject:nil];
+	[_textField resignFirstResponder];
     if (_comment == nil) {
         _comment = [[iLIBComment alloc] init];
     }
@@ -214,37 +213,12 @@
 
 #pragma mark - TextField Delegate
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    float  offset = -200; //view向上移动的距离
-    NSTimeInterval animationDuration = 0.30f;
-    [UIView beginAnimations:@"ResizeForKeyBoard"context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    float width = self.view.frame.size.width;
-    float height = self.view.frame.size.height;
-    CGRect rect = CGRectMake(0.0f, offset , width, height);
-    self.view.frame = rect;
-    [UIView  commitAnimations];
-}
-
-- (void)textFieldDidEndEditing
-{
-    [_textField resignFirstResponder];
-    float offset = 0.0;
-    NSTimeInterval animationDuration = 0.30f;
-    [UIView beginAnimations:@"ResizeForKeyBoard"context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    float width = self.view.frame.size.width;
-    float height = self.view.frame.size.height;
-    CGRect rect = CGRectMake(0.0f, offset , width, height);
-    self.view.frame = rect;
-    [UIView commitAnimations];
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
 	NSLog(@"return");
 	[self publishComment];
 	return YES;
 }
+
 
 @end

@@ -47,7 +47,8 @@
 		[_titleTextField setBorderStyle:UITextBorderStyleRoundedRect];
 		_titleTextField.placeholder = @"请填写书名";
 		_titleTextField.font = [UIFont systemFontOfSize:14];
-		_titleTextField.returnKeyType = UIReturnKeyNext;
+		_titleTextField.returnKeyType = UIReturnKeyDefault;
+		_titleTextField.delegate = self;
 		[self.view addSubview:_titleTextField];
 		
 		
@@ -61,6 +62,8 @@
 		[_autherTextField setBorderStyle:UITextBorderStyleRoundedRect];
 		_autherTextField.placeholder = @"请填写作者名字";
 		_autherTextField.font = [UIFont systemFontOfSize:14];
+		_autherTextField.returnKeyType = UIReturnKeyDefault;
+		_autherTextField.delegate = self;
 		[self.view addSubview:_autherTextField];
 		
 		
@@ -75,6 +78,8 @@
 		_descriptionTextView.alpha = 1.0f;
 		_descriptionTextView.layer.cornerRadius = 5.0f;
 		_descriptionTextView.font = [UIFont systemFontOfSize:14];
+		_descriptionTextView.returnKeyType = UIReturnKeyDone;
+		_descriptionTextView.delegate = self;
 		[self.view addSubview:_descriptionTextView];
 		
 		UIButton *borrowButton = [[UIButton alloc] initWithFrame:CGRectMake(45, 419, 103, 30)];
@@ -115,17 +120,21 @@
 }
 
 #pragma mark - TextField Delegate
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
 	NSLog(@"return");
+	[textField resignFirstResponder];
 	return YES;
 }
+
 
 #pragma mark - TextView Delegate
 
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    if ([text isEqualToString:@"\n"]) {
+    if ([text isEqualToString:@"\n"])
+	{
         [textView resignFirstResponder];
         return NO;
     }

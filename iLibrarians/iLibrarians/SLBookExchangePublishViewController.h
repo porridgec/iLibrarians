@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLBookExchangePublishViewController : UIViewController <UITextFieldDelegate>
+@interface SLBookExchangePublishViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
 
 
 - (void)publishIdleBook:(id)sender;

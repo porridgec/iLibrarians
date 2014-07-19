@@ -608,12 +608,12 @@
 				2CD4F039197105400077A967 /* SLMyInfoViewController.m */,
 				2CEF08851971802A002DDEDC /* SLPublishViewController.h */,
 				2CEF08861971802A002DDEDC /* SLPublishViewController.m */,
+				28BF4510197AC58A00E71301 /* SLBookExchangeView.h */,
+				28BF4511197AC58A00E71301 /* SLBookExchangeView.m */,
 				28BF450C197AC58A00E71301 /* SLBookExchangeDetailViewController.h */,
 				28BF450D197AC58A00E71301 /* SLBookExchangeDetailViewController.m */,
 				28BF450E197AC58A00E71301 /* SLBookExchangePublishViewController.h */,
 				28BF450F197AC58A00E71301 /* SLBookExchangePublishViewController.m */,
-				28BF4510197AC58A00E71301 /* SLBookExchangeView.h */,
-				28BF4511197AC58A00E71301 /* SLBookExchangeView.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
