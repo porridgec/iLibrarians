@@ -13,7 +13,9 @@
 #import "iLIBEngine.h"
 #import "SLBookExchangeCell.h"
 #import "SLMyInfoViewController.h"
-#import "SLBookDetailViewController.h"
+#import "SLBookExchangeDetailViewController.h"
+#import "SLBookExchangePublishViewController.h"
+#import "IQKeyboardManager.h"
 
 #define NAVIGATONBAR_HEIGHT 32
 #define SEGMENT_HEIGHT 29
@@ -62,6 +64,7 @@
         self.publishButton = [[UIButton alloc] initWithFrame:CGRectMake((width - PUBLISH_BUTTON_WIDTH) / 2, height - PUBLISH_BUTTON_HEIGHT - 69., PUBLISH_BUTTON_WIDTH,PUBLISH_BUTTON_HEIGHT)];
         [self.publishButton setTitle:@"发布消息" forState:UIControlStateNormal];
         [self.publishButton setBackgroundColor:segmentedControlColor];
+		[self.publishButton addTarget:self action:@selector(publishBook) forControlEvents:UIControlEventTouchUpInside];
         
         
         [self addSubview:self.publishButton];
@@ -83,6 +86,9 @@
     
     
     [_header beginRefreshing];
+	
+	[IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
+	[IQKeyboardManager sharedManager].shouldShowTextFieldPlaceholder = NO;
     return self;
 }
 
@@ -119,7 +125,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SLBookDetailViewController *detailViewController = [[SLBookDetailViewController alloc] init];
+    SLBookExchangeDetailViewController *detailViewController = [[SLBookExchangeDetailViewController alloc] init];
     [detailViewController setBook:[_booksArray objectAtIndex:indexPath.row]];
     [self.controller.navigationController pushViewController:detailViewController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -168,6 +174,13 @@
     } onError:^(NSError *engineError) {
         [UIAlertView showWithText:@"获取漂流图书数据失败，请重试"];
     }];
+}
+
+#pragma mark - PublishBook
+- (void)publishBook
+{
+	SLBookExchangePublishViewController *publish = [[SLBookExchangePublishViewController alloc] init];
+	[self.controller.navigationController pushViewController:publish animated:YES];
 }
 
 @end

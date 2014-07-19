@@ -7,19 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SLSearchResultViewController.h"
 
-@class iLIBFloatBookItem;
+@interface SLBookDetailViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 
-@interface SLBookDetailViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate>
+@property (strong, nonatomic)  UILabel *bookTitleLabel;
+@property (strong, nonatomic)  UIImageView *bookCoverImage;
+@property (strong, nonatomic)  UILabel *bookIndexLabel;
+@property (strong, nonatomic)  UILabel *authorLabel;
+@property (strong, nonatomic)  UILabel *publishLabel;
+@property (strong, nonatomic)  UITableView *statusTableView;
 
-@property (nonatomic,strong) UITableView *tableView;
-@property (nonatomic,strong) UIView *textFieldBackgroundView;
-@property (nonatomic,strong) UITextField *textField;
-@property (nonatomic,strong) UIButton *publishButton;
-@property (nonatomic,strong) iLIBFloatBookItem *book;
+@property (strong, nonatomic) NSString *bookTitle;
+@property (strong, nonatomic) NSString *bookIndex;
+@property (strong, nonatomic) NSString *publish;
+@property (strong, nonatomic) NSString *author;
+@property (strong, nonatomic) NSString *docNumber;
+@property (strong, nonatomic) UIImage *bookCover;
+@property (strong, nonatomic) NSMutableArray *status;
 
-- (void)publishComment:(id)sender;
-- (void)textFieldDidEndEditing:(id)sender;
-
+@property (strong, nonatomic) iLIBEngine *iLibEngine;
 
 @end

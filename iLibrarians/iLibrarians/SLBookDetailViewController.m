@@ -7,72 +7,25 @@
 //
 
 #import "SLBookDetailViewController.h"
-#import "MJRefresh.h"
 #import "iLIBEngine.h"
-#import "SLBookExchangeDetailCell.h"
-#import "SLBookExchangeCommentCell.h"
-#import "iLIBFloatBookItem.h"
-#import "iLIBComment.h"
-#import "SLAppDelegate.h"
+#import "iLIBBookItem.h"
+#import "MBProgressHUD.h"
 
-#define MAX_HEIGHT 500
-#define contentFont [UIFont systemFontOfSize:13]
-#define textFieldBackgroundColor [UIColor colorWithRed:0.4784 green:0.9255 blue:0.7098 alpha:1.0]
+#define kHostUrl @"libapi.insysu.com"
+
+#define aRGB(a,r,g,b) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a/1.0f]
 
 @interface SLBookDetailViewController ()
-{
-    MJRefreshHeaderView *_header;
-    MJRefreshFooterView *_footer;
-}
 
-@property(nonatomic,assign) int pageCount;
-@property(nonatomic,strong) iLIBEngine *iLibEngine;
-//@property(nonatomic,strong) iLIBPublishCommentViewController *iLibPublishCommentViewController;
-@property(nonatomic,strong) iLIBComment *comment;
-@property(nonatomic,strong) NSMutableArray *commentArray;
 @end
 
 @implementation SLBookDetailViewController
 
-- (id)init
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super init];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, 320, self.view.frame.size.height-40)];
-        self.tableView.dataSource = self;
-        self.tableView.delegate = self;
-        [self.view addSubview:self.tableView];
-        
-        self.textFieldBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-40, 320, 40)];
-        self.textFieldBackgroundView.backgroundColor = [UIColor blueColor];
-        [self.view addSubview:self.textFieldBackgroundView];
-        
-        self.textField = [[UITextField alloc] initWithFrame:CGRectMake(9, 3, 259, 30)];
-        self.textField.delegate = self;
-        self.textField.placeholder = @"我也来说两句";
-        [self.textField setBorderStyle:UITextBorderStyleRoundedRect];
-        [self.textField addTarget:self action:@selector(textFieldDidBeginEditing:) forControlEvents:UIControlEventEditingDidBegin];
-        [self.textFieldBackgroundView addSubview:self.textField];
-        
-        self.publishButton = [[UIButton alloc] initWithFrame:CGRectMake(276, 2, 30, 30)];
-        [self.publishButton setTitle:@"发表" forState:UIControlStateNormal];
-        self.publishButton.titleLabel.font = [UIFont systemFontOfSize:15];
-        self.publishButton.titleLabel.textColor = [UIColor lightGrayColor];
-        [self.publishButton addTarget:self action:@selector(publishComment:) forControlEvents:UIControlEventTouchUpInside];
-        [self.textFieldBackgroundView addSubview:self.publishButton];
-        
-        _header = [[MJRefreshHeaderView alloc] init];
-        _header.delegate = (id)self;
-        _header.scrollView = self.tableView;
-        _footer = [[MJRefreshFooterView alloc] init];
-        _footer.delegate = (id)self;
-        _footer.scrollView = self.tableView;
-        _pageCount = 1;
-        
-        self.iLibEngine = [SLAppDelegate sharedDelegate].iLibEngine;
-        
-        
     }
     return self;
 }
@@ -82,6 +35,60 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self setTitle:@"图书详情"];
+    [self.view setBackgroundColor:aRGB(1, 239, 239, 239)];
+    
+    self.bookCoverImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 80, 75, 100)];
+    self.bookTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(95, 68, 205, 40)];
+    self.bookIndexLabel = [[UILabel alloc] initWithFrame:CGRectMake(95, 106, 205, 17)];
+    self.authorLabel    = [[UILabel alloc] initWithFrame:CGRectMake(95, 134, 205, 17)];
+    self.publishLabel   = [[UILabel alloc] initWithFrame:CGRectMake(95, 162, 205, 17)];
+    
+    
+    self.bookTitleLabel.text        = self.bookTitle;
+    self.bookIndexLabel.text        = self.bookIndex;
+    self.authorLabel.text           = self.author;
+    self.bookCoverImage.image       = self.bookCover;
+    self.publishLabel.text          = self.publish;
+    self.iLibEngine                 = [[iLIBEngine alloc]initWithHostName:kHostUrl customHeaderFields:nil];
+    
+    self.statusTableView            = [[UITableView alloc] initWithFrame:CGRectMake(10, 188, 300, 330)];
+    self.statusTableView.backgroundColor = aRGB(1, 239, 239, 239);
+    self.statusTableView.dataSource = self;
+    self.statusTableView.delegate   = self;
+    
+    [self.bookTitleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+    [self.bookIndexLabel setFont:[UIFont systemFontOfSize:15]];
+    [self.authorLabel setFont:[UIFont systemFontOfSize:14]];
+    [self.publishLabel setFont:[UIFont systemFontOfSize:14]];
+    
+    self.bookIndexLabel.textColor = [UIColor colorWithRed:0.00 green:0.47 blue:0.68 alpha:1.00];
+    self.authorLabel.textColor    = [UIColor grayColor];
+    self.publishLabel.textColor   = [UIColor grayColor];
+    
+    [self.view addSubview:self.bookCoverImage];
+    [self.view addSubview:self.bookTitleLabel];
+    [self.view addSubview:self.bookIndexLabel];
+    [self.view addSubview:self.authorLabel];
+    [self.view addSubview:self.publishLabel];
+    [self.view addSubview:self.statusTableView];
+    
+    MBProgressHUD *hud        = [[MBProgressHUD alloc]initWithView:self.view];
+    hud.labelText             = @"加载中...";
+    [hud show:YES];
+    [self.statusTableView addSubview:hud];
+    
+    [self.iLibEngine getBookStatusWithDocNumber:self.docNumber onCompletion:^(NSMutableArray *status){
+        //
+        self.status = status;
+        [self.statusTableView reloadData];
+        [hud removeFromSuperview];
+    }onError:^(NSError *error){
+        //
+    }];
+	
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,139 +97,78 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table View DataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_commentArray count] + 1;
+    return [self.status count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        SLBookExchangeDetailCell *cell = [[SLBookExchangeDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"BookDetailCell"];
-        [cell configureForCell:_book];
-        cell.countLabel.text = [NSString stringWithFormat:@"评论 :%d",_commentArray.count];
-        return cell;
+    
+    
+    static NSString *CellIdentifier = @"cellIdentifier";
+    NSDictionary *curStatus = [self.status objectAtIndex:indexPath.row];
+    
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if(cell==nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
-    static NSString *CellIdentifier = @"iLIBCommentCell";
-    SLBookExchangeCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[SLBookExchangeCommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    cell.textLabel.text = [[self.status objectAtIndex:indexPath.row]objectForKey:@"sub-library"];
+    if([[curStatus valueForKey:@"sub-library"] isEqualToString:@"业务书"]   ||
+       [[curStatus valueForKey:@"sub-library"] isEqualToString:@"调拨临时"] ||
+       [[curStatus valueForKey:@"sub-library"] isEqualToString:@"院系保留"]   ){
+        cell.detailTextLabel.text = @"不外借";
     }
-    [cell configureForCell:[_commentArray objectAtIndex:indexPath.row-1]];
+    else{
+        if([[curStatus objectForKey:@"loan-status"] isKindOfClass:[NSNull class]] == NO  && [[curStatus valueForKey:@"loan-status"] isEqualToString:@"A"]){
+            NSString *dueDate = [NSString stringWithFormat:@"%@",[curStatus objectForKey:@"loan-due-date"]];
+            NSString *year    = [dueDate substringWithRange:NSMakeRange(0, 4)];
+            NSString *month   = [dueDate substringWithRange:NSMakeRange(4, 2)];
+            NSString *day     = [dueDate substringWithRange:NSMakeRange(6, 2)];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"借出至%@年%@月%@日",year,month,day];
+            cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
+        }
+        else{
+            cell.detailTextLabel.text = @"在馆";
+        }
+    }
     return cell;
 }
 
-#pragma mark - Table View Delegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
-        CGRect rect = [_book.content boundingRectWithSize:CGSizeMake(278, MAXFLOAT)
-                                                  options:NSStringDrawingUsesLineFragmentOrigin
-                                               attributes:@{NSFontAttributeName:contentFont}
-                                                  context:nil];
-        return 50 + (rect.size.height>80?rect.size.height:80);
-    }
-    iLIBComment* comment = [_commentArray objectAtIndex:indexPath.row-1];
-    CGRect rect = [comment.content boundingRectWithSize:CGSizeMake(232, MAXFLOAT)
-                                                options:NSStringDrawingUsesLineFragmentOrigin
-                                             attributes:@{NSFontAttributeName:contentFont}
-                                                context:nil];
-    return 40+rect.size.height;
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
 }
 
-#pragma mark - Refresh View Delegate
-
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    if (_header == refreshView) {
-        [self performSelector:@selector(refresh) withObject:nil];
-        NSLog(@"刷新");
-    }
-    else {
-        NSLog(@"加载更多");
-        _pageCount ++;
-        NSLog(@"pageCount:%d",_pageCount);
-        [self.iLibEngine getCommentWithId:self.book.resId page:_pageCount onSucceeded:^(NSArray *bookArray) {
-            [_commentArray addObjectsFromArray:bookArray];
-        } onError:^(NSError *engineError) {
-            NSLog(@"Get Comments Error");
-        }];
-    }
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(reloadTableView) userInfo:nil repeats:NO];
+    UIView* footerView                = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    
+    footerView.autoresizesSubviews    = YES;
+    
+    footerView.autoresizingMask       = UIViewAutoresizingFlexibleWidth;
+    
+    footerView.userInteractionEnabled = YES;
+    
+    footerView.hidden                 = YES;
+    
+    footerView.multipleTouchEnabled   = NO;
+    
+    footerView.opaque                 = NO;
+    
+    footerView.contentMode            = UIViewContentModeScaleToFill;
+    
+    footerView.backgroundColor        = [UIColor whiteColor];
+    
+    return footerView;
 }
 
-- (void)reloadTableView
-{
-    [_tableView reloadData];
-    [_header endRefreshing];
-    [_footer endRefreshing];
-}
-#pragma mark - Selector
-
-- (void)publishComment:(id)sender
-{
-    [self performSelector:@selector(textFieldDidEndEditing:) withObject:nil];
-    if (_comment == nil) {
-        _comment = [[iLIBComment alloc] init];
-    }
-    _comment.userId = _book.userId;
-    _comment.userName = _book.userName;
-    _comment.replyId = _iLibEngine.studentId;
-    _comment.replyName = _iLibEngine.studentName;
-    _comment.resId = _book.resId;
-    _comment.content = _textField.text;
-    [_iLibEngine writeCommentWithId:_comment onSucceeded:^{
-        [UIAlertView showWithText:@"评论成功"];
-        _comment.content = @"";
-        _textField.text = @"";
-        [self performSelector:@selector(refresh) withObject:nil];
-    } onError:^(NSError *engineError) {
-        [UIAlertView showWithTitle:@"评论失败" message:@"请检查你的网络设置"];
-    }];
-}
-
-- (void)refresh
-{
-    _pageCount = 1;
-    [self.iLibEngine getCommentWithId:self.book.resId page:_pageCount onSucceeded:^(NSArray *bookArray) {
-        _commentArray = (id)bookArray;
-        [_tableView reloadData];
-    } onError:^(NSError *engineError) {
-        NSLog(@"Get Comments Error");
-    }];
-}
-
-#pragma mark - TextField Delegate
-
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    float  offset = -250; //view向上移动的距离
-    NSTimeInterval animationDuration = 0.30f;
-    [UIView beginAnimations:@"ResizeForKeyBoard"context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    float width = self.view.frame.size.width;
-    float height = self.view.frame.size.height;
-    CGRect rect = CGRectMake(0.0f, offset , width, height);
-    self.view.frame = rect;
-    [UIView  commitAnimations];
-}
-
-- (void)textFieldDidEndEditing:(id)sender
-{
-    [_textField resignFirstResponder];
-    float offset = 0.0;
-    NSTimeInterval animationDuration = 0.30f;
-    [UIView beginAnimations:@"ResizeForKeyBoard"context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    float width = self.view.frame.size.width;
-    float height = self.view.frame.size.height;
-    CGRect rect = CGRectMake(0.0f, offset , width, height);
-    self.view.frame = rect;
-    [UIView commitAnimations];
-}
 @end
