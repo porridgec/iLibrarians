@@ -27,7 +27,7 @@
         _lineImageView.image = [UIImage imageNamed:@"line"];
         [self addSubview:_lineImageView];
         
-        _dotImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 12, 20, 20)];
+        _dotImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 8, 20, 20)];
         [self addSubview:_dotImageView];
         
         _usernameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, 68, 21)];

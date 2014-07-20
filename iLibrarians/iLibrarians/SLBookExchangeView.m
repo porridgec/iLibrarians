@@ -20,7 +20,7 @@
 #define NAVIGATONBAR_HEIGHT 32
 #define SEGMENT_HEIGHT 29
 #define PUBLISH_BUTTON_WIDTH 200
-#define PUBLISH_BUTTON_HEIGHT 20
+#define PUBLISH_BUTTON_HEIGHT 25
 
 #define cellBackGroundColor [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.5]
 #define segmentedControlColor [UIColor colorWithRed:0.4784 green:0.9255 blue:0.7098 alpha:1.0]

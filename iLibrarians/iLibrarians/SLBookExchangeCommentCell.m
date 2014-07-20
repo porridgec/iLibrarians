@@ -24,12 +24,12 @@
         _lineImageView.image = [UIImage imageNamed:@"line"];
         [self addSubview:_lineImageView];
         
-        _dotImageView = [[UIImageView alloc] initWithFrame:CGRectMake(1, 11, 17, 17)];
+        _dotImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 8, 20, 20)];
         _dotImageView.image = [UIImage imageNamed:@"dot"];
         [self addSubview:_dotImageView];
         
         _userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 7, 142, 21)];
-        _userNameLabel.textColor = contentColor;
+        _userNameLabel.textColor = [UIColor colorWithRed:0.52 green:0.8 blue:0.58 alpha:1];
         _userNameLabel.font = [UIFont systemFontOfSize:12];
         [self addSubview:_userNameLabel];
         
@@ -39,7 +39,7 @@
         [self addSubview:_dateLabel];
         
         _commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(26, 26, 232, 71)];
-        _commentLabel.textColor = contentColor;
+        _commentLabel.textColor = [UIColor colorWithRed:0.31 green:0.49 blue:0.51 alpha:1];
         _commentLabel.font = [UIFont systemFontOfSize:12];
         [self addSubview:_commentLabel];
         

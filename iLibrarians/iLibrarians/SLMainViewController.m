@@ -58,7 +58,8 @@
     SLSearchBookViewController *searchBookViewController = [[SLSearchBookViewController alloc] init];
     SLBookExchangeView *bookExchangeView = [[SLBookExchangeView alloc] initWithFrame:CGRectMake(0.+ width + width, 0., width, height)];
     bookExchangeView.controller = self;
-    
+    self.mainScrollView.contentOffset = CGPointMake(640, 0);
+	
     [myLibraryViewController.view setFrame:CGRectMake(0., 0., width, height)];
     [searchBookViewController.view setFrame:CGRectMake(0.+ width, 0., width, height)];
     

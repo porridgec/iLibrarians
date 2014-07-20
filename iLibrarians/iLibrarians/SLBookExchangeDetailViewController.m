@@ -40,27 +40,29 @@
     self = [super init];
     if (self) {
         // Custom initialization
+		self.title = @"评论";
+		
         self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, 320, self.view.frame.size.height-40-64)];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         [self.view addSubview:self.tableView];
         
-        self.textFieldBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-40, 320, 40)];
+        self.textFieldBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-35, 320, 35)];
         self.textFieldBackgroundView.backgroundColor = textFieldBackgroundColor;
         [self.view addSubview:self.textFieldBackgroundView];
         
-        self.textField = [[UITextField alloc] initWithFrame:CGRectMake(9, 3, 259, 30)];
+        self.textField = [[UITextField alloc] initWithFrame:CGRectMake(9, 5, 259, 25)];
         self.textField.placeholder = @"我也来说两句";
         [self.textField setBorderStyle:UITextBorderStyleRoundedRect];
 		self.textField.inputAccessoryView = [[UIView alloc]init];
 		self.textField.returnKeyType = UIReturnKeyDone;
 		self.textField.delegate = self;
-        [self.textFieldBackgroundView addSubview:self.textField];
+		[self.textFieldBackgroundView addSubview:self.textField];
         
-        self.publishButton = [[UIButton alloc] initWithFrame:CGRectMake(276, 2, 30, 30)];
+        self.publishButton = [[UIButton alloc] initWithFrame:CGRectMake(276, 2, 35, 30)];
         [self.publishButton setTitle:@"发表" forState:UIControlStateNormal];
-        self.publishButton.titleLabel.font = [UIFont systemFontOfSize:15];
-        self.publishButton.titleLabel.textColor = [UIColor lightGrayColor];
+        self.publishButton.titleLabel.font = [UIFont systemFontOfSize:16];
+        self.publishButton.titleLabel.textColor = [UIColor darkGrayColor];
         [self.publishButton addTarget:self action:@selector(publishComment) forControlEvents:UIControlEventTouchUpInside];
         [self.textFieldBackgroundView addSubview:self.publishButton];
         
