@@ -8,6 +8,7 @@
 
 #import "SLAppDelegate.h"
 #import "SLLogInViewController.h"
+#import "iLIBEngine.h"
 
 @implementation SLAppDelegate
 
@@ -21,6 +22,8 @@
     [self.window setRootViewController:loginViewController];
     
     [self.window makeKeyAndVisible];
+	
+    self.iLibEngine = [[iLIBEngine alloc] init];
     return YES;
 }
 
@@ -51,4 +54,8 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
++ (instancetype)sharedDelegate
+{
+    return (SLAppDelegate*)[UIApplication sharedApplication].delegate;
+}
 @end

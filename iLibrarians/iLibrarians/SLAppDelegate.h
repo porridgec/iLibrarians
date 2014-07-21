@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class iLIBEngine;
 
 @interface SLAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
++ (instancetype)sharedDelegate;
+
+@property (strong, nonatomic)iLIBEngine *iLibEngine;
 @end
