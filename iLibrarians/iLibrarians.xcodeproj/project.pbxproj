@@ -600,7 +600,7 @@
 				8B17BC0F1971396400F8B6A9 /* Image */,
 				18DC1BEC1971209A008EEC5C /* Model */,
 				18DC1BC619711F2D008EEC5C /* ThirdParty */,
-				2CB91CBD196C034F00BD961C /* ViewControllers */,
+				2CB91CBD196C034F00BD961C /* View */,
 				28BF4502197AC53E00E71301 /* Cell */,
 				2C1B313D196BC4F40076E2DF /* SLAppDelegate.h */,
 				2C1B313E196BC4F40076E2DF /* SLAppDelegate.m */,
@@ -642,7 +642,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2CB91CBD196C034F00BD961C /* ViewControllers */ = {
+		2CB91CBD196C034F00BD961C /* View */ = {
 			isa = PBXGroup;
 			children = (
 				8B17BC0A19712EC600F8B6A9 /* SLLogInViewController.xib */,
@@ -650,26 +650,34 @@
 				2CB91CBF196C036F00BD961C /* SLLogInViewController.m */,
 				2CD4F03B1971054D0077A967 /* SLMainViewController.h */,
 				2CD4F03C1971054D0077A967 /* SLMainViewController.m */,
-				2CD4F032197104F10077A967 /* SLMyLibraryView.h */,
-				2CD4F033197104F10077A967 /* SLMyLibraryView.m */,
+				2CC09C30197EB701008F9CE3 /* mainView */,
 				2CD4F038197105400077A967 /* SLMyInfoViewController.h */,
 				2CD4F039197105400077A967 /* SLMyInfoViewController.m */,
 				2CEF08851971802A002DDEDC /* SLPublishViewController.h */,
 				2CEF08861971802A002DDEDC /* SLPublishViewController.m */,
 				F65E66B8197E00C00071320A /* SLBookDetailViewController.h */,
 				F65E66B9197E00C00071320A /* SLBookDetailViewController.m */,
-				F65E66BA197E00C00071320A /* SLSearchBookView.h */,
-				F65E66BB197E00C00071320A /* SLSearchBookView.m */,
 				F65E66BC197E00C00071320A /* SLSearchResultViewController.h */,
 				F65E66BD197E00C00071320A /* SLSearchResultViewController.m */,
-				28BF4510197AC58A00E71301 /* SLBookExchangeView.h */,
-				28BF4511197AC58A00E71301 /* SLBookExchangeView.m */,
 				28BF450C197AC58A00E71301 /* SLBookExchangeDetailViewController.h */,
 				28BF450D197AC58A00E71301 /* SLBookExchangeDetailViewController.m */,
 				28BF450E197AC58A00E71301 /* SLBookExchangePublishViewController.h */,
 				28BF450F197AC58A00E71301 /* SLBookExchangePublishViewController.m */,
 			);
-			name = ViewControllers;
+			name = View;
+			sourceTree = "<group>";
+		};
+		2CC09C30197EB701008F9CE3 /* mainView */ = {
+			isa = PBXGroup;
+			children = (
+				2CD4F032197104F10077A967 /* SLMyLibraryView.h */,
+				2CD4F033197104F10077A967 /* SLMyLibraryView.m */,
+				F65E66BA197E00C00071320A /* SLSearchBookView.h */,
+				F65E66BB197E00C00071320A /* SLSearchBookView.m */,
+				28BF4510197AC58A00E71301 /* SLBookExchangeView.h */,
+				28BF4511197AC58A00E71301 /* SLBookExchangeView.m */,
+			);
+			name = mainView;
 			sourceTree = "<group>";
 		};
 		8B17BC0F1971396400F8B6A9 /* Image */ = {

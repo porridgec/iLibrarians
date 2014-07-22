@@ -58,10 +58,10 @@
         [self addSubview:self.segmentedControl];
         
         
-        self.exchangeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0., SEGMENT_HEIGHT, width, height - PUBLISH_BUTTON_HEIGHT - 69. - NAVIGATONBAR_HEIGHT)];
+        self.exchangeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0., SEGMENT_HEIGHT, width, height - 80. - NAVIGATONBAR_HEIGHT)];
         [self addSubview:self.exchangeTableView];
         
-        self.publishButton = [[UIButton alloc] initWithFrame:CGRectMake((width - PUBLISH_BUTTON_WIDTH) / 2, height - PUBLISH_BUTTON_HEIGHT - 69., PUBLISH_BUTTON_WIDTH,PUBLISH_BUTTON_HEIGHT)];
+        self.publishButton = [[UIButton alloc] initWithFrame:CGRectMake((width - PUBLISH_BUTTON_WIDTH) / 2, height - PUBLISH_BUTTON_HEIGHT - 85., PUBLISH_BUTTON_WIDTH,PUBLISH_BUTTON_HEIGHT)];
         [self.publishButton setTitle:@"发布消息" forState:UIControlStateNormal];
         [self.publishButton setBackgroundColor:segmentedControlColor];
 		[self.publishButton addTarget:self action:@selector(publishBook) forControlEvents:UIControlEventTouchUpInside];
@@ -139,8 +139,8 @@
         NSLog(@"加载更多");
         _pageCount ++;
         NSLog(@"pageCount:%d",_pageCount);
-        [self.iLibEngine getFloatBooksWithType:[NSString stringWithFormat:@"%d",self.segmentedControl.selectedSegmentIndex] page:_pageCount onSuccess:^(NSArray *bookArray) {
-            NSLog(@"count:%d",bookArray.count);
+        [self.iLibEngine getFloatBooksWithType:[NSString stringWithFormat:@"%ld",(long)self.segmentedControl.selectedSegmentIndex] page:_pageCount onSuccess:^(NSArray *bookArray) {
+            NSLog(@"count:%lu",(unsigned long)bookArray.count);
             [_booksArray addObjectsFromArray:bookArray];
             [_footer endRefreshing];
             [self.exchangeTableView reloadData];
@@ -152,7 +152,7 @@
     else if ([refreshView isMemberOfClass:[MJRefreshHeaderView class]])
     {
         _pageCount = 1;
-        [self.iLibEngine getFloatBooksWithType:[NSString stringWithFormat:@"%d",self.segmentedControl.selectedSegmentIndex] page:_pageCount onSuccess:^(NSArray *bookArray) {
+        [self.iLibEngine getFloatBooksWithType:[NSString stringWithFormat:@"%ld",(long)self.segmentedControl.selectedSegmentIndex] page:_pageCount onSuccess:^(NSArray *bookArray) {
             self.booksArray = (id)bookArray;
             [_header endRefreshing];
             [self.exchangeTableView reloadData];
@@ -168,7 +168,7 @@
 
 - (void)mySegmentValueChanged:(id)sender {
     _pageCount = 1;
-    [_iLibEngine getFloatBooksWithType:[NSString stringWithFormat:@"%d",self.segmentedControl.selectedSegmentIndex] page:_pageCount onSuccess:^(NSArray *bookArray) {
+    [_iLibEngine getFloatBooksWithType:[NSString stringWithFormat:@"%ld",(long)self.segmentedControl.selectedSegmentIndex] page:_pageCount onSuccess:^(NSArray *bookArray) {
         _booksArray = (id)bookArray;
         [self.exchangeTableView reloadData];
     } onError:^(NSError *engineError) {
