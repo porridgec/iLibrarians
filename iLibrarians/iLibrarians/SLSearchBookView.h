@@ -12,7 +12,7 @@
 
 @interface SLSearchBookView : UIView
 
-@property (strong,nonatomic) SLMainViewController *vc;
+@property (weak,nonatomic) SLMainViewController *vc;
 @property (strong,nonatomic) NSString *searchRequest;
 @property (strong,nonatomic) iLIBEngine *iLibEngine;
 

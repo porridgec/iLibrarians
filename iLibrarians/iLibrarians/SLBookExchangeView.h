@@ -12,6 +12,6 @@
 @interface SLBookExchangeView : UIView <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UIButton *publishButton;
-@property (nonatomic, strong) SLMainViewController *controller;
+@property (nonatomic, weak) SLMainViewController *controller;
 
 @end
