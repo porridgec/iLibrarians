@@ -1,8 +1,6 @@
 #import "SLAppDelegate.h"
 #import "SLLoginViewController.h"
 #import "SLMyLibraryViewController.h"
-#import "SLSearchBookViewController.h"
-#import "SLBooksExchangeViewController.h"
 #import "SLMyInfoViewController.h"
 #import "SLMainViewController.h"
 #import "MBProgressHUD.h"
@@ -38,8 +36,6 @@
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
     self.usernameTextField.text               = [userDefault objectForKey:@"username"];
     self.passwordTextField.text               = [userDefault objectForKey:@"password"];
-	
-	[self login];
 }
 
 
@@ -70,12 +66,12 @@
 
 - (void)login
 {
-//    if (self.usernameTextField.text == nil || self.passwordTextField.text == nil || [self.usernameTextField.text isEqualToString:@""] || [self.passwordTextField.text isEqualToString:@""])
-//    {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"完善信息" message:@"用户名和密码不完整" delegate:nil cancelButtonTitle:@"寡人知道了" otherButtonTitles: nil];
-//        [alert show];
-//        return;
-//    }
+    if (self.usernameTextField.text == nil || self.passwordTextField.text == nil || [self.usernameTextField.text isEqualToString:@""] || [self.passwordTextField.text isEqualToString:@""])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"完善信息" message:@"用户名和密码不完整" delegate:nil cancelButtonTitle:@"寡人知道了" otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
     
     MBProgressHUD *hud = [[MBProgressHUD alloc]initWithView:self.view];
     hud.labelText      = @"登录中...";

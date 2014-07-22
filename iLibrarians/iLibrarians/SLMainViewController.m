@@ -8,8 +8,9 @@
 
 #import "SLMainViewController.h"
 #import "SLMyLibraryViewController.h"
-#import "SLSearchBookViewController.h"
 #import "SLMyInfoViewController.h"
+
+#import "SLSearchBookView.h"
 #import "SLBookExchangeView.h"
 
 #define NAVIGATION_BAR_HEIGHT 64
@@ -45,7 +46,7 @@
 {
     CGFloat width = self.view.frame.size.width;
     CGFloat height = self.view.frame.size.height;
-
+    
     self.mainScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0., 0., width, height)];
     [self.mainScrollView setContentSize:CGSizeMake(width * 3, 0.)];
     [self.mainScrollView setPagingEnabled:YES];
@@ -55,17 +56,17 @@
     [self.view addSubview:self.mainScrollView];
     
     SLMyLibraryViewController *myLibraryViewController = [[SLMyLibraryViewController alloc] init];
-    SLSearchBookViewController *searchBookViewController = [[SLSearchBookViewController alloc] init];
+    
+    SLSearchBookView *searchBookView = [[SLSearchBookView alloc] initWithFrame:CGRectMake(0.+ width, 0., width, height)];
+    searchBookView.vc = self;
+    
     SLBookExchangeView *bookExchangeView = [[SLBookExchangeView alloc] initWithFrame:CGRectMake(0.+ width + width, 0., width, height)];
     bookExchangeView.controller = self;
-    self.mainScrollView.contentOffset = CGPointMake(640, 0);
-	
     [myLibraryViewController.view setFrame:CGRectMake(0., 0., width, height)];
-    [searchBookViewController.view setFrame:CGRectMake(0.+ width, 0., width, height)];
     
     
     [self.mainScrollView addSubview:myLibraryViewController.view];
-    [self.mainScrollView addSubview:searchBookViewController.view];
+    [self.mainScrollView addSubview:searchBookView];
     [self.mainScrollView addSubview:bookExchangeView];
 }
 
