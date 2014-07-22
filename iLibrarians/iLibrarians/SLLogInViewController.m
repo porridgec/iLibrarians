@@ -1,6 +1,5 @@
 #import "SLAppDelegate.h"
 #import "SLLoginViewController.h"
-#import "SLMyLibraryViewController.h"
 #import "SLMyInfoViewController.h"
 #import "SLMainViewController.h"
 #import "MBProgressHUD.h"

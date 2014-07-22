@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SLMyLibraryViewController : UIViewController
+@interface SLMyLibraryView : UIView
 
 @end
