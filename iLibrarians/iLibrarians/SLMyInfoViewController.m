@@ -45,7 +45,6 @@
     [self.myInfoTable setDataSource:self];
     
     [self.view addSubview:self.myInfoTable];
-    
 }
 
 

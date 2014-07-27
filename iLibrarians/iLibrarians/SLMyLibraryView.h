@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class iLIBBookItem;
+
+@protocol BorrowBookDelegate <NSObject>
+
+- (void)showBorrowBookDetailViewControllerWithCoverImage:(UIImage *)coverImage BookItem:(iLIBBookItem*)bookItem;
+
+@end
+
 @interface SLMyLibraryView : UIView
+
+@property (nonatomic,weak) id<BorrowBookDelegate> delegate;
 
 @end

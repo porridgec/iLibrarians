@@ -8,6 +8,7 @@
 
 #import "SLMainViewController.h"
 #import "SLMyInfoViewController.h"
+#import "iLIBBorrowedBookDetailViewController.h"
 
 #import "SLSearchBookView.h"
 #import "SLBookExchangeView.h"
@@ -17,10 +18,12 @@
 #define PAGE_CONTROL_BAR_HEIGHT 10
 #define NUMBER_OF_PAGE 3
 
-@interface SLMainViewController () <UIScrollViewDelegate>
+@interface SLMainViewController () <UIScrollViewDelegate, BorrowBookDelegate>
 
 @property (nonatomic, strong) UIScrollView *mainScrollView;
 @property (nonatomic, strong) UIPageControl *mainPageControl;
+@property (nonatomic, strong) iLIBBorrowedBookDetailViewController *iLibBorrowedBookDetailViewController;
+
 @end
 
 @implementation SLMainViewController
@@ -60,6 +63,7 @@
     [self.view addSubview:self.mainScrollView];
     
     SLMyLibraryView *myLibraryView = [[SLMyLibraryView alloc] initWithFrame:CGRectMake(0., 0., width, height)];
+    myLibraryView.delegate = self;
     
     SLSearchBookView *searchBookView = [[SLSearchBookView alloc] initWithFrame:CGRectMake(0.+ width, 0., width, height)];
     searchBookView.vc = self;
@@ -100,6 +104,16 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     [self.mainPageControl setCurrentPage:scrollView.contentOffset.x / scrollView.frame.size.width];
+}
+
+#pragma mark - BorrowBookDelegate
+
+- (void)showBorrowBookDetailViewControllerWithCoverImage:(UIImage *)coverImage BookItem:(iLIBBookItem *)bookItem
+{
+    _iLibBorrowedBookDetailViewController = [[iLIBBorrowedBookDetailViewController alloc] initWithNibName:@"iLIBBorrowedBookDetailViewController" bundle:nil];
+    _iLibBorrowedBookDetailViewController.coverView.image = coverImage;
+    [_iLibBorrowedBookDetailViewController setBookItem:bookItem];
+    [self.navigationController pushViewController:_iLibBorrowedBookDetailViewController animated:YES];
 }
 
 @end
