@@ -10,4 +10,6 @@
 
 @interface SLMainViewController : UIViewController
 
+- (void)setPageOfScrollView:(NSInteger)page;
+
 @end
