@@ -7,6 +7,7 @@
 //
 
 #import "SLMyInfoViewController.h"
+#import "iLIBEngine.h"
 
 @interface SLMyInfoViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -31,7 +32,7 @@
     [super viewDidLoad];
     [self initView];
     
-    NSArray *content = [[NSArray alloc] initWithObjects:@"关于iLibrarian",@"关于SYSU AppleClub",@"反馈意见",@"去评分",nil];
+    NSArray *content = [[NSArray alloc] initWithObjects:@"退出登录",nil];
     self.tableCellContent = content;
 }
 
@@ -80,6 +81,27 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self didTouchOnLogoutItem];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)didTouchOnLogoutItem{
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"确定退出?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
+    [alert show];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != 0){
+        [[iLIBEngine sharedInstance] logout:^(void){
+            NSLog(@"log out success!");
+        }onError:^(NSError *errorEngine){
+            NSLog(@"Engine error!Failed to logout!");
+        }];
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+ //       [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
 }
 @end

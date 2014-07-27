@@ -19,8 +19,6 @@
 
 #define NAVIGATONBAR_HEIGHT 32
 #define SEGMENT_HEIGHT 29
-#define PUBLISH_BUTTON_WIDTH 200
-#define PUBLISH_BUTTON_HEIGHT 25
 
 #define cellBackGroundColor [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.5]
 #define segmentedControlColor [UIColor colorWithRed:0.4784 green:0.9255 blue:0.7098 alpha:1.0]
@@ -61,13 +59,6 @@
         self.exchangeTableView = [[UITableView alloc] initWithFrame:CGRectMake(0., SEGMENT_HEIGHT, width, height - 80. - NAVIGATONBAR_HEIGHT)];
         [self addSubview:self.exchangeTableView];
         
-        self.publishButton = [[UIButton alloc] initWithFrame:CGRectMake((width - PUBLISH_BUTTON_WIDTH) / 2, height - PUBLISH_BUTTON_HEIGHT - 85., PUBLISH_BUTTON_WIDTH,PUBLISH_BUTTON_HEIGHT)];
-        [self.publishButton setTitle:@"发布消息" forState:UIControlStateNormal];
-        [self.publishButton setBackgroundColor:segmentedControlColor];
-		[self.publishButton addTarget:self action:@selector(publishBook) forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        [self addSubview:self.publishButton];
         [self.exchangeTableView reloadData];
     }
     
@@ -125,9 +116,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SLBookExchangeDetailViewController *detailViewController = [[SLBookExchangeDetailViewController alloc] init];
-    [detailViewController setBook:[_booksArray objectAtIndex:indexPath.row]];
-    [self.controller.navigationController pushViewController:detailViewController animated:YES];
+    [self.delegate showBookExchangeDetailViewControllerWithBook:[_booksArray objectAtIndex:indexPath.row]];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -174,13 +163,6 @@
     } onError:^(NSError *engineError) {
         [UIAlertView showWithText:@"获取漂流图书数据失败，请重试"];
     }];
-}
-
-#pragma mark - PublishBook
-- (void)publishBook
-{
-	SLBookExchangePublishViewController *publish = [[SLBookExchangePublishViewController alloc] init];
-	[self.controller.navigationController pushViewController:publish animated:YES];
 }
 
 @end

@@ -90,8 +90,6 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登陆失败" message:@"请检查用户名密码或网络设置" delegate:self cancelButtonTitle:@"寡人知道了" otherButtonTitles:nil];
         [hud removeFromSuperview];
         [alert show];
-        
-        [self goToMainViewController];
         NSLog(@"%@ login failed\n",self.usernameTextField.text);
     }];
 }
@@ -100,6 +98,8 @@
 {
     SLMainViewController *mainViewController = [[SLMainViewController alloc] init];
     UINavigationController *mainNavigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
-    [self presentViewController:mainNavigationController animated:YES completion:nil];
+    [self presentViewController:mainNavigationController animated:YES completion:^{
+                         [mainViewController setPageOfScrollView:2];
+                     }];
 }
 @end

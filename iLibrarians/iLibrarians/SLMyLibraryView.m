@@ -60,7 +60,7 @@
     self.borrowBookTableView.delegate = self;
     self.borrowBookTableView.dataSource = _bookArrayDataSource;
     [self.borrowBookTableView setRowHeight:66.];
-    [self.borrowBookTableView reloadData];
+    [_header beginRefreshing];
 }
 
 #pragma mark - Table View Delegate

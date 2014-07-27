@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "SLMainViewController.h"
+
 @class iLIBFloatBookItem;
+
+@protocol BookExchangeDelegate <NSObject>
+
+- (void)showBookExchangeDetailViewControllerWithBook:(iLIBFloatBookItem*)book;
+
+@end
+
 @interface SLBookExchangeView : UIView <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) UIButton *publishButton;
-@property (nonatomic, weak) SLMainViewController *controller;
+@property (nonatomic, weak) id<BookExchangeDelegate> delegate;
 
 @end

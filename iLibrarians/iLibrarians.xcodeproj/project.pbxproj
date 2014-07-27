@@ -66,6 +66,8 @@
 		2CD641451984912800B0D609 /* iLIBBorrowedBooksCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CD641431984912800B0D609 /* iLIBBorrowedBooksCell.xib */; };
 		2CD641491984922500B0D609 /* iLIBBorrowedBookDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD641471984922500B0D609 /* iLIBBorrowedBookDetailViewController.m */; };
 		2CD6414A1984922500B0D609 /* iLIBBorrowedBookDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CD641481984922500B0D609 /* iLIBBorrowedBookDetailViewController.xib */; };
+		2CD641511984A38800B0D609 /* publishMsg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CD641501984A38800B0D609 /* publishMsg@2x.png */; };
+		2CD641551984A5D100B0D609 /* myInfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CD641541984A5D100B0D609 /* myInfo@2x.png */; };
 		2CEF08871971802A002DDEDC /* SLPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CEF08861971802A002DDEDC /* SLPublishViewController.m */; };
 		8B17BC0B19712EC600F8B6A9 /* SLLogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B17BC0A19712EC600F8B6A9 /* SLLogInViewController.xib */; };
 		8B17BC0E1971370F00F8B6A9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B17BC0D1971370F00F8B6A9 /* MBProgressHUD.m */; };
@@ -288,6 +290,8 @@
 		2CD641461984922500B0D609 /* iLIBBorrowedBookDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iLIBBorrowedBookDetailViewController.h; sourceTree = "<group>"; };
 		2CD641471984922500B0D609 /* iLIBBorrowedBookDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iLIBBorrowedBookDetailViewController.m; sourceTree = "<group>"; };
 		2CD641481984922500B0D609 /* iLIBBorrowedBookDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iLIBBorrowedBookDetailViewController.xib; sourceTree = "<group>"; };
+		2CD641501984A38800B0D609 /* publishMsg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "publishMsg@2x.png"; sourceTree = "<group>"; };
+		2CD641541984A5D100B0D609 /* myInfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myInfo@2x.png"; sourceTree = "<group>"; };
 		2CEF08851971802A002DDEDC /* SLPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLPublishViewController.h; sourceTree = "<group>"; };
 		2CEF08861971802A002DDEDC /* SLPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLPublishViewController.m; sourceTree = "<group>"; };
 		8B17BC0A19712EC600F8B6A9 /* SLLogInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLLogInViewController.xib; sourceTree = "<group>"; };
@@ -704,6 +708,8 @@
 		8B17BC0F1971396400F8B6A9 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				2CD641501984A38800B0D609 /* publishMsg@2x.png */,
+				2CD641541984A5D100B0D609 /* myInfo@2x.png */,
 				8B17BC6F19713B2C00F8B6A9 /* res */,
 				8B17BC101971396400F8B6A9 /* Icon */,
 				8B17BC131971396400F8B6A9 /* others */,
@@ -958,6 +964,7 @@
 				8B17BC421971396400F8B6A9 /* icon_57.png in Resources */,
 				8B17BCA319713B2C00F8B6A9 /* refresh.png in Resources */,
 				8B17BC591971396400F8B6A9 /* more_unselected@2x.png in Resources */,
+				2CD641551984A5D100B0D609 /* myInfo@2x.png in Resources */,
 				8B17BCAA19713B2C00F8B6A9 /* tabbar2.png in Resources */,
 				8B17BCAF19713B2C00F8B6A9 /* text_input.png in Resources */,
 				8B17BC481971396400F8B6A9 /* tabbar_bookcircle.png in Resources */,
@@ -984,6 +991,7 @@
 				8B17BC9019713B2C00F8B6A9 /* about_bg.png in Resources */,
 				8B17BC551971396400F8B6A9 /* logoutbutton@2x.png in Resources */,
 				8B17BCA719713B2C00F8B6A9 /* setting_bg.png in Resources */,
+				2CD641511984A38800B0D609 /* publishMsg@2x.png in Resources */,
 				8B17BC9E19713B2C00F8B6A9 /* item_bg_2.png in Resources */,
 				8B17BC5C1971396400F8B6A9 /* mylib_unselected.png in Resources */,
 				8B17BC9719713B2C00F8B6A9 /* converbackground.png in Resources */,
